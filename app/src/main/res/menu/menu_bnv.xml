@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_bnv_item_search"
+        android:icon="@drawable/ic_main_search_bnv_menu_default"
+        android:title="@string/bnv_item_search"
+        />
+
+    <item
+        android:id="@+id/menu_bnv_item_wishlist"
+        android:icon="@drawable/ic_main_wishlist_bnv_menu_default"
+        android:title="@string/bnv_item_wishlist" />
+
+    <item
+        android:id="@+id/menu_bnv_item_trip"
+        android:icon="@drawable/ic_main_trip_bnv_menu_default"
+        android:title="@string/bnv_item_trip" />
+    <item
+        android:id="@+id/menu_bnv_item_message"
+        android:icon="@drawable/ic_main_message_bnv_menu_default"
+        android:title="@string/bnv_item_message" />
+    <item
+        android:id="@+id/menu_bnv_item_profile"
+        android:icon="@drawable/ic_main_profile_bnv_menu_default"
+        android:title="@string/bnv_item_profile" />
+
+</menu>
