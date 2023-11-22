@@ -9,4 +9,7 @@
     <string name="top_nav_item_room">방</string>
     <string name="top_nav_item_goodview">최고의 전망</string>
     <string name="top_nav_item_seashore">해변 근처</string>
+    <string name="tv_main_search_where_to_go">어디로 여행가세요?</string>
+    <string name="tv_main_search_where_to_go_2">어디든지 • 언제든 일주일 • 게스트 추가</string>
+    <string name="search_bar_contentDescription">search bar</string>
 </resources>

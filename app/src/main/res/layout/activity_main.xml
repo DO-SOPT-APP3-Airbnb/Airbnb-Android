@@ -43,7 +43,8 @@
             android:src="@drawable/bg_white_fill_29_search_bar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/search_bar_contentDescription"/>
 
         <TextView
             android:id="@+id/tv_main_search_1"
@@ -51,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
             android:layout_marginTop="20dp"
-            android:text="어디로 여행가세요?"
+            android:text="@string/tv_main_search_where_to_go"
             android:textColor="@color/black1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -61,7 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
-            android:text="어디든지 • 언제든 일주일 • 게스트 추가"
+            android:text="@string/tv_main_search_where_to_go_2"
             android:textColor="@color/gray_text"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_main_search_1" />
@@ -69,7 +70,7 @@
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/top_nav_main"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="64dp"
             android:background="@color/white"
             android:elevation="100dp"
             app:itemActiveIndicatorStyle="@null"
@@ -86,12 +87,16 @@
             android:id="@+id/fcv_main"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/bot_nav_main"
+            app:layout_constraintBottom_toTopOf="@+id/btn_main_map"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="14dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/top_nav_main" />
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_main_map"
             android:layout_width="100dp"
             android:layout_height="44dp"
             app:layout_constraintBottom_toTopOf="@+id/bot_nav_main"
