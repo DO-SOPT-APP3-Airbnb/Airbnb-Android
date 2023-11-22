@@ -11,5 +11,6 @@
     <string name="top_nav_item_seashore">해변 근처</string>
     <string name="tv_main_search_where_to_go">어디로 여행가세요?</string>
     <string name="tv_main_search_where_to_go_2">어디든지 • 언제든 일주일 • 게스트 추가</string>
-    <string name="search_bar_contentDescription">search bar</string>
+    <string name="search_bar_contentDescription">검색창</string>
+    <string name="room_contentDescription">룸 이미지</string>
 </resources>

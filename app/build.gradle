@@ -67,4 +67,7 @@ dependencies {
 
     // Kotlin
     implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1'
+
+    // viewPager
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
 }
