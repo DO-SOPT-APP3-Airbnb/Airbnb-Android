@@ -10,13 +10,98 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_main_search_filtering"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="60dp"
+            android:background="@drawable/ic_explore_filtering"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_main_search_bar"
+            app:layout_constraintEnd_toEndOf="@id/iv_main_search_bar"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/ic_main_search"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="60dp"
+            android:background="@drawable/ic_explore_search"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_main_search_bar"
+            app:layout_constraintStart_toStartOf="@id/iv_main_search_bar"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/iv_main_search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bg_white_fill_29_search_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/search_bar_contentDescription"/>
+
         <TextView
+            android:id="@+id/tv_main_search_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="explore / 유리"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/tv_main_search_where_to_go"
+            android:textColor="@color/black1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_main_search_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:text="@string/tv_main_search_where_to_go_2"
+            android:textColor="@color/gray_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_main_search_1" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/top_nav_main"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:background="@color/white"
+            android:elevation="100dp"
+            app:itemActiveIndicatorStyle="@null"
+            app:itemBackground="@color/white"
+            app:itemIconTint="@color/tab_item_selector"
+            app:itemTextColor="@color/tab_item_selector"
+            app:labelVisibilityMode="labeled"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_main_search_bar"
+            app:menu="@menu/menu_top_nav" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/vp_explore"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_main_map"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/top_nav_main" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_main_map"
+            android:layout_width="100dp"
+            android:layout_height="44dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/ic_explore_map"
+            />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

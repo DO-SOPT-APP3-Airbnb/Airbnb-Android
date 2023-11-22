@@ -6,6 +6,6 @@ import com.example.airbnb.databinding.FragmentExploreBinding
 
 class ExploreFragment : BindingFragment<FragmentExploreBinding>(R.layout.fragment_explore) {
     override fun initView() {
-        //로직 작성
+        // 로직 작성
     }
 }
