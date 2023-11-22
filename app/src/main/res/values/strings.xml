@@ -14,4 +14,5 @@
     <string name="search_bar_contentDescription">검색창</string>
     <string name="room_contentDescription">룸 이미지</string>
     <string name="iv_viewPager_score_star">별점 아이콘</string>
+    <string name="ib_viewPager_favorite">좋아요</string>
 </resources>

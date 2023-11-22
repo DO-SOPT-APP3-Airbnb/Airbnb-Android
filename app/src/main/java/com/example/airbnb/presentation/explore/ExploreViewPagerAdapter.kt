@@ -37,6 +37,10 @@ class ExploreViewPagerAdapter(private val imageList: List<ExploreImage>) :
                 tvViewPagerDate.text = imageInfo.date
                 tvViewPagerPrice.text = imageInfo.price
                 tvViewPagerScore.text = imageInfo.score
+
+                if (imageInfo.favorite) {
+                    ibViewPagerFavorite.setImageResource(R.drawable.ic_explore_favorite_selected)
+                }
             }
         }
     }

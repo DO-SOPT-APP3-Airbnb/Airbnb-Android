@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
-
+    android:layout_height="match_parent">
 
 
     <ImageView
@@ -12,13 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/shape_white_line_14_rect"
         android:contentDescription="@string/room_contentDescription"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/shape_white_line_14_rect"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_viewPager_title"
@@ -26,11 +25,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="19.55dp"
         android:layout_marginTop="24.17dp"
-        android:fontFamily="@font/font_poppins_semibold"
-        tools:text="titletitletitletitletitletitle"
+        android:textAppearance="@style/TextAppearance.Airbnb.title_semi_28"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="@id/iv_viewPager_Image"
-        app:layout_constraintTop_toTopOf="@id/iv_viewPager_Image" />
+        app:layout_constraintTop_toTopOf="@id/iv_viewPager_Image"
+        tools:text="titletitletitletitletitletitle" />
 
     <TextView
         android:id="@+id/tv_viewPager_location"
@@ -38,11 +37,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="19.55dp"
         android:layout_marginBottom="7dp"
-        android:fontFamily="@font/roboto_medium"
-        tools:text="998km 거리"
+        android:textAppearance="@style/TextAppearance.Airbnb.sub_medium_16"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@id/tv_viewPager_date"
-        app:layout_constraintStart_toStartOf="@id/iv_viewPager_Image" />
+        app:layout_constraintStart_toStartOf="@id/iv_viewPager_Image"
+        tools:text="998km 거리" />
 
 
     <TextView
@@ -51,11 +50,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="19.55dp"
         android:layout_marginBottom="11dp"
-        android:fontFamily="@font/roboto_medium"
-        tools:text="1월 14일 ~ 19일"
+        android:textAppearance="@style/TextAppearance.Airbnb.sub_medium_16"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@id/tv_viewPager_price"
-        app:layout_constraintStart_toStartOf="@id/iv_viewPager_Image" />
+        app:layout_constraintStart_toStartOf="@id/iv_viewPager_Image"
+        tools:text="1월 14일 ~ 19일" />
 
 
     <TextView
@@ -64,11 +63,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="19.55dp"
         android:layout_marginBottom="33.55dp"
-        android:fontFamily="@font/roboto_medium"
-        tools:text="604,333 / 박"
+        android:textAppearance="@style/TextAppearance.Airbnb.sub_medium_16"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@id/iv_viewPager_Image"
-        app:layout_constraintStart_toStartOf="@id/iv_viewPager_Image" />
+        app:layout_constraintStart_toStartOf="@id/iv_viewPager_Image"
+        tools:text="604,333 / 박" />
 
     <ImageView
         android:id="@+id/iv_viewPager_score_star"
@@ -76,22 +75,35 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="56.17dp"
         android:layout_marginBottom="37.27dp"
+        android:contentDescription="@string/iv_viewPager_score_star"
         android:src="@drawable/ic_explore_star"
         app:layout_constraintBottom_toBottomOf="@id/iv_viewPager_Image"
-        app:layout_constraintEnd_toEndOf="@id/iv_viewPager_Image"
-        android:contentDescription="@string/iv_viewPager_score_star"
-        />
+        app:layout_constraintEnd_toEndOf="@id/iv_viewPager_Image" />
 
     <TextView
         android:id="@+id/tv_viewPager_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:layout_marginBottom="37.27dp"
-        android:fontFamily="@font/roboto_medium"
-        tools:text="4.96"
+        android:layout_marginBottom="33dp"
+        android:textAppearance="@style/TextAppearance.Airbnb.sub_medium_16"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@id/iv_viewPager_Image"
-        app:layout_constraintStart_toEndOf="@id/iv_viewPager_score_star" />
+        app:layout_constraintStart_toEndOf="@id/iv_viewPager_score_star"
+        tools:text="4.96" />
+
+    <ImageButton
+        android:id="@+id/ib_viewPager_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="33.5dp"
+        android:layout_marginEnd="23.5dp"
+        app:layout_constraintTop_toTopOf="@id/iv_viewPager_Image"
+        app:layout_constraintEnd_toEndOf="@id/iv_viewPager_Image"
+        android:src="@drawable/ic_explore_favorite_default"
+        android:background="@null"
+        android:contentDescription="@string/ib_viewPager_favorite"
+
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
