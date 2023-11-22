@@ -31,6 +31,12 @@ class ExploreViewPagerAdapter(private val imageList: List<ExploreImage>) :
 
                 // 모서리 둥글
                 ivViewPagerImage.clipToOutline = true
+
+                tvViewPagerTitle.text = imageInfo.title
+                tvViewPagerLocation.text = imageInfo.location
+                tvViewPagerDate.text = imageInfo.date
+                tvViewPagerPrice.text = imageInfo.price
+                tvViewPagerScore.text = imageInfo.score
             }
         }
     }
