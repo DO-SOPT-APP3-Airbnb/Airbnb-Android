@@ -28,6 +28,9 @@ class ExploreViewPagerAdapter(private val imageList: List<ExploreImage>) :
                     placeholder(R.drawable.shape_gray_fill_14_rect_image_loading)
                     error(R.drawable.shape_gray_fill_14_rect_image_loading)
                 }
+
+                // 모서리 둥글
+                ivViewPagerImage.clipToOutline = true
             }
         }
     }
