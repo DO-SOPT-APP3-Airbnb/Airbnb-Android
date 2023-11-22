@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_top_item_explore_treehouse"
+        android:icon="@drawable/ic_explore_treehouse"
+        android:title="@string/top_nav_item_treehouse"
+        />
+
+    <item
+        android:id="@+id/menu_top_item_explore_room"
+        android:icon="@drawable/ic_explore_room"
+        android:title="@string/top_nav_item_room" />
+
+    <item
+        android:id="@+id/menu_top_item_explore_goodview"
+        android:icon="@drawable/ic_explore_goodview"
+        android:title="@string/top_nav_item_goodview" />
+    <item
+        android:id="@+id/menu_top_item_explore_seashore"
+        android:icon="@drawable/ic_explore_seashore"
+        android:title="@string/top_nav_item_seashore" />
+
+</menu>

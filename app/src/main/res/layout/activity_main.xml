@@ -10,16 +10,86 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/back_gray"
         tools:context=".presentation.MainActivity">
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_main_search_filtering"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="60dp"
+            android:background="@drawable/ic_explore_filtering"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_main_search_bar"
+            app:layout_constraintEnd_toEndOf="@id/iv_main_search_bar"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/ic_main_search"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="60dp"
+            android:background="@drawable/ic_explore_search"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_main_search_bar"
+            app:layout_constraintStart_toStartOf="@id/iv_main_search_bar"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/iv_main_search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bg_white_fill_29_search_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_main_search_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="20dp"
+            android:text="어디로 여행가세요?"
+            android:textColor="@color/black1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_main_search_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:text="어디든지 • 언제든 일주일 • 게스트 추가"
+            android:textColor="@color/gray_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_main_search_1" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/top_nav_main"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@color/white"
+            android:elevation="100dp"
+            app:itemActiveIndicatorStyle="@null"
+            app:itemBackground="@color/white"
+            app:itemIconTint="@color/tab_item_selector"
+            app:itemTextColor="@color/tab_item_selector"
+            app:labelVisibilityMode="labeled"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_main_search_bar"
+            app:menu="@menu/menu_top_nav" />
+
         <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fcv_home"
+            android:id="@+id/fcv_main"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@+id/bot_nav_main"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/top_nav_main" />
 
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -27,6 +97,7 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:background="@color/white"
+            android:elevation="100dp"
             app:itemActiveIndicatorStyle="@null"
             app:itemBackground="@color/white"
             app:itemIconTint="@color/bnv_item_selector"
@@ -35,7 +106,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/menu_bnv" />
+            app:menu="@menu/menu_bot_nav" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
