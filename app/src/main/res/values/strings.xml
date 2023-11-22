@@ -13,4 +13,5 @@
     <string name="tv_main_search_where_to_go_2">어디든지 • 언제든 일주일 • 게스트 추가</string>
     <string name="search_bar_contentDescription">검색창</string>
     <string name="room_contentDescription">룸 이미지</string>
+    <string name="iv_viewPager_score_star">별점 아이콘</string>
 </resources>

@@ -4,6 +4,7 @@ data class ExploreImage(
     val Image: Int,
     val title: String,
     val location: String,
+    val date: String,
     val price: String,
     val score: String,
     var favorite: Boolean,

@@ -2,10 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
 
     <ImageView
-        android:id="@+id/item_viewPager_Image"
+        android:id="@+id/iv_viewPager_Image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginEnd="8dp"
@@ -15,5 +18,79 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_viewPager_title"
+        android:layout_width="212dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19.55dp"
+        android:layout_marginTop="24.17dp"
+        android:fontFamily="@font/font_poppins_semibold"
+        tools:text="titletitletitletitletitletitle"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@id/iv_viewPager_Image"
+        app:layout_constraintTop_toTopOf="@id/iv_viewPager_Image" />
+
+    <TextView
+        android:id="@+id/tv_viewPager_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19.55dp"
+        android:layout_marginBottom="7dp"
+        android:fontFamily="@font/roboto_medium"
+        tools:text="998km 거리"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/tv_viewPager_date"
+        app:layout_constraintStart_toStartOf="@id/iv_viewPager_Image" />
+
+
+    <TextView
+        android:id="@+id/tv_viewPager_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19.55dp"
+        android:layout_marginBottom="11dp"
+        android:fontFamily="@font/roboto_medium"
+        tools:text="1월 14일 ~ 19일"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/tv_viewPager_price"
+        app:layout_constraintStart_toStartOf="@id/iv_viewPager_Image" />
+
+
+    <TextView
+        android:id="@+id/tv_viewPager_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19.55dp"
+        android:layout_marginBottom="33.55dp"
+        android:fontFamily="@font/roboto_medium"
+        tools:text="604,333 / 박"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/iv_viewPager_Image"
+        app:layout_constraintStart_toStartOf="@id/iv_viewPager_Image" />
+
+    <ImageView
+        android:id="@+id/iv_viewPager_score_star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="56.17dp"
+        android:layout_marginBottom="37.27dp"
+        android:src="@drawable/ic_explore_star"
+        app:layout_constraintBottom_toBottomOf="@id/iv_viewPager_Image"
+        app:layout_constraintEnd_toEndOf="@id/iv_viewPager_Image"
+        android:contentDescription="@string/iv_viewPager_score_star"
+        />
+
+    <TextView
+        android:id="@+id/tv_viewPager_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="37.27dp"
+        android:fontFamily="@font/roboto_medium"
+        tools:text="4.96"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/iv_viewPager_Image"
+        app:layout_constraintStart_toEndOf="@id/iv_viewPager_score_star" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

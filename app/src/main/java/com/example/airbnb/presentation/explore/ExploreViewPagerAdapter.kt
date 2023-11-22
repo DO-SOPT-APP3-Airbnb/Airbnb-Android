@@ -24,7 +24,7 @@ class ExploreViewPagerAdapter(private val imageList: List<ExploreImage>) :
 
         fun onBindView(imageInfo: ExploreImage) {
             binding.run {
-                itemViewPagerImage.load(imageInfo.Image) {
+                ivViewPagerImage.load(imageInfo.Image) {
                     placeholder(R.drawable.shape_gray_fill_14_rect_image_loading)
                     error(R.drawable.shape_gray_fill_14_rect_image_loading)
                 }
