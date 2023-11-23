@@ -14,62 +14,72 @@
             android:id="@+id/btn_main_search_filtering"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:layout_marginEnd="60dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/ic_explore_filtering"
             android:gravity="center_vertical"
             app:layout_constraintBottom_toBottomOf="@+id/iv_main_search_bar"
             app:layout_constraintEnd_toEndOf="@id/iv_main_search_bar"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/iv_main_search_bar" />
+
+
+        <View
+            android:id="@+id/iv_main_search_bar"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:layout_marginHorizontal="13dp"
+            android:layout_marginTop="11.5dp"
+            android:background="@drawable/shape_white_line_30_rect"
+            android:backgroundTint="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/top_nav_main"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/ic_main_search"
             android:layout_width="28dp"
             android:layout_height="28dp"
-            android:layout_marginStart="60dp"
+            android:layout_marginTop="17.4dp"
+            android:layout_marginBottom="17.6dp"
+            android:layout_marginStart="27dp"
             android:background="@drawable/ic_explore_search"
-            android:gravity="center_vertical"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_main_search_bar"
+            app:layout_constraintBottom_toBottomOf="@id/iv_main_search_bar"
             app:layout_constraintStart_toStartOf="@id/iv_main_search_bar"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@id/iv_main_search_bar" />
 
-
-        <ImageView
-            android:id="@+id/iv_main_search_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/search_bar_contentDescription"
-            android:src="@drawable/shape_white_fill_29_rect_search_bar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_main_search_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="20dp"
             android:text="@string/tv_main_search_where_to_go"
             android:textColor="@color/black1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toEndOf="@+id/ic_main_search"
+            app:layout_constraintTop_toTopOf="@+id/iv_main_search_bar" />
 
         <TextView
             android:id="@+id/tv_main_search_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
+            android:layout_marginStart="11dp"
             android:text="@string/tv_main_search_where_to_go_2"
             android:textColor="@color/gray_text"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ic_main_search"
             app:layout_constraintTop_toBottomOf="@+id/tv_main_search_1" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/top_nav_main"
             android:layout_width="match_parent"
             android:layout_height="64dp"
+            android:layout_marginTop="13dp"
             android:background="@color/white"
-            android:elevation="100dp"
             app:itemActiveIndicatorStyle="@null"
             app:itemBackground="@color/white"
             app:itemIconTint="@color/tab_item_selector"
@@ -84,7 +94,6 @@
             android:id="@+id/vp_explore"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="14dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/btn_main_map"
@@ -92,16 +101,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/top_nav_main" />
 
-        <LinearLayout
-            android:id="@+id/ll_explore_Indicators"
-            android:layout_width="0dp"
+        <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+            android:id="@+id/indicator_viewpager_image_dots"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingBottom="8dp"
+            android:layout_marginBottom="10.8dp"
+            app:dotsColor="@color/white_40"
+            app:dotsCornerRadius="8dp"
+            app:dotsSize="6dp"
+            app:dotsSpacing="4dp"
+            app:dotsWidthFactor="1"
             app:layout_constraintBottom_toBottomOf="@id/vp_explore"
             app:layout_constraintEnd_toEndOf="@id/vp_explore"
-            app:layout_constraintStart_toStartOf="@id/vp_explore" />
+            app:layout_constraintStart_toStartOf="@+id/vp_explore"
+            app:progressMode="true"
+            app:selectedDotColor="@color/white" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_main_map"

@@ -21,5 +21,6 @@ class ExploreFragment : BindingFragment<FragmentExploreBinding>(R.layout.fragmen
         val dummyExploreImageList = DummyExploreImageList.dummyExploreImage
         exploreViewPagerAdapter = ExploreViewPagerAdapter(dummyExploreImageList)
         binding.vpExplore.adapter = exploreViewPagerAdapter
+        binding.indicatorViewpagerImageDots.attachTo(binding.vpExplore)
     }
 }
