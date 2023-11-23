@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -9,7 +9,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/img_when_background">
 
         <include
             android:id="@+id/appbar_when"
@@ -40,8 +41,51 @@
             app:layout_constraintTop_toBottomOf="@id/iv_when_progress_bar" />
 
 
-        
+        <View
+            android:id="@+id/view_when_calender_background"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="19dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="38dp"
+            android:background="@drawable/shape_white_40_fill_20_rec"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_when_title" />
 
+        <include
+            android:id="@+id/layout_when_calender_selection"
+            layout="@layout/view_calender_selection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            app:layout_constraintEnd_toEndOf="@id/view_when_calender_background"
+            app:layout_constraintStart_toStartOf="@id/view_when_calender_background"
+            app:layout_constraintTop_toTopOf="@id/view_when_calender_background" />
 
+        <include
+            android:id="@+id/layout_when_calender_week"
+            layout="@layout/view_calender_week"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="22dp"
+            app:layout_constraintEnd_toEndOf="@id/view_when_calender_background"
+            app:layout_constraintStart_toStartOf="@id/view_when_calender_background"
+            app:layout_constraintTop_toBottomOf="@id/layout_when_calender_selection" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginTop="20dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintEnd_toEndOf="@id/view_when_calender_background"
+            app:layout_constraintStart_toStartOf="@id/view_when_calender_background"
+            app:layout_constraintTop_toBottomOf="@id/layout_when_calender_week"
+            app:spanCount="7"
+            tools:itemCount="35"
+            tools:listitem="@layout/item_calender_date" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
