@@ -75,17 +75,29 @@
             app:layout_constraintStart_toStartOf="@id/view_when_calender_background"
             app:layout_constraintTop_toBottomOf="@id/layout_when_calender_selection" />
 
+        <TextView
+            android:id="@+id/tv_when_calender_year_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="2023 11월"
+            android:textAppearance="@style/TextAppearance.Airbnb.body_bold_14"
+            app:layout_constraintStart_toStartOf="@id/layout_when_calender_week"
+            app:layout_constraintTop_toBottomOf="@id/layout_when_calender_week" />
+
+
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_when_calender_date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="5dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="6dp"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintEnd_toEndOf="@id/view_when_calender_background"
             app:layout_constraintStart_toStartOf="@id/view_when_calender_background"
-            app:layout_constraintTop_toBottomOf="@id/layout_when_calender_week"
+            app:layout_constraintTop_toBottomOf="@id/tv_when_calender_year_month"
             app:spanCount="7"
-            tools:itemCount="35"
+            tools:itemCount="42"
             tools:listitem="@layout/item_calender_date" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
