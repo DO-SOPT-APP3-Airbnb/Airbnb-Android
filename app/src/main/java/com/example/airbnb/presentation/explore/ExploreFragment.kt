@@ -22,5 +22,7 @@ class ExploreFragment : BindingFragment<FragmentExploreBinding>(R.layout.fragmen
         exploreViewPagerAdapter = ExploreViewPagerAdapter(dummyExploreImageList)
         binding.vpExplore.adapter = exploreViewPagerAdapter
         binding.indicatorViewpagerImageDots.attachTo(binding.vpExplore)
+        binding.vpExplore.offscreenPageLimit = 3
+        binding.vpExplore.setPadding(40, 0, 40, 0)
     }
 }
