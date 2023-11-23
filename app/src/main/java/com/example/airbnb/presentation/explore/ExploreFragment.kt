@@ -1,7 +1,5 @@
 package com.example.airbnb.presentation.explore
 
-import android.os.Bundle
-import android.view.View
 import com.example.airbnb.R
 import com.example.airbnb.core.base.BindingFragment
 import com.example.airbnb.data.DummyExploreImageList
@@ -13,11 +11,6 @@ class ExploreFragment : BindingFragment<FragmentExploreBinding>(R.layout.fragmen
 
     override fun initView() {
         // 로직 작성
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
         val dummyExploreImageList = DummyExploreImageList.dummyExploreImage
         exploreViewPagerAdapter = ExploreViewPagerAdapter(dummyExploreImageList)
         binding.vpExplore.adapter = exploreViewPagerAdapter
