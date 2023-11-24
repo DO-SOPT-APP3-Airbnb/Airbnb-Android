@@ -37,7 +37,7 @@
                     android:id="@+id/tv_appbar_title_lodging"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="숙소"
+                    android:text="@string/tv_appbar_title_lodging"
                     android:textAppearance="@style/TextAppearance.Airbnb.sub_medium_16"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -52,10 +52,11 @@
                     app:layout_constraintTop_toBottomOf="@id/tv_appbar_title_lodging" />
 
                 <TextView
+                    android:id="@+id/tv_appbar_title_experience"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:text="체험"
+                    android:text="@string/tv_appbar_title_experience"
                     android:textAppearance="@style/TextAppearance.Airbnb.sub_medium_16"
                     android:textColor="@color/gray_text"
                     app:layout_constraintStart_toEndOf="@id/tv_appbar_title_lodging"

@@ -14,7 +14,7 @@
         android:paddingHorizontal="15dp"
         android:paddingVertical="8dp"
         android:stateListAnimator="@null"
-        android:text="정확한 날짜"
+        android:text="@string/btn_when_select_exact_date"
         android:textAppearance="@style/TextAppearance.Airbnb.body_medium_14"
         android:textColor="@drawable/sel_when_exact_date_text"
         app:layout_constraintEnd_toEndOf="parent"

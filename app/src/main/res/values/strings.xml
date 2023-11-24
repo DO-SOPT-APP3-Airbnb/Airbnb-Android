@@ -31,4 +31,26 @@
     <string name="who_pet_description"><u>반려동물을 동반하시나요?</u></string>
     <string name="who_title">누구와 함께 여행가시나요?</string>
     <string name="where_title">솝트님,\n이번엔 어디로 여행가시나요?</string>
+    <!--appbar-->
+    <string name="app_name">airbnb</string>
+    <string name="tv_appbar_title_lodging">숙소</string>
+    <string name="tv_appbar_title_experience">체험</string>
+    <!--when-->
+    <string name="appbar_content_description_back">상단바 뒤로가기 버튼입니다.</string>
+    <string name="when_content_description_progress_bar">progress bar입니다.</string>
+    <string name="tv_when_title">언제 여행을 가실 예정인가요?</string>
+    <string name="tv_when_calender_year_month">2023 11월</string>
+    <string name="tv_when_navigation_skip">건너뛰기</string>
+    <string name="btn_when_navigation_next">다음</string>
+    <string name="btn_when_select_exact_date">정확한 날짜</string>
+    <string name="tv_calender_selection_date">날짜지정</string>
+    <string name="tv_calender_selection_month">월 단위</string>
+    <string name="tv_calender_selection_flexible">유연한 일정</string>
+    <string name="tv_calender_week_sun">일</string>
+    <string name="tv_calender_week_mon">월</string>
+    <string name="tv_calender_week_wed">수</string>
+    <string name="tv_calender_week_tue">화</string>
+    <string name="tv_calender_week_thu">목</string>
+    <string name="tv_calender_week_fri">금</string>
+    <string name="tv_calender_week_sat">토</string>
 </resources>
