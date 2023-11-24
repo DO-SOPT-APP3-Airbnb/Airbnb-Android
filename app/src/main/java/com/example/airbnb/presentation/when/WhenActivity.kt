@@ -14,7 +14,7 @@ class WhenActivity : BindingActivity<ActivityWhenBinding>(R.layout.activity_when
 
     private fun initCalenderAdapter() {
         binding.rvWhenCalenderDate.adapter =
-            CalenderAdapter(this, onCalenderDateClick = { it, position ->
+            CalenderAdapter(this, onCalenderDateClick = { _, _ ->
             }).apply {
                 submitList(createCustomCalendar())
             }
