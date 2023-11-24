@@ -1,5 +1,6 @@
 package com.example.airbnb.presentation.`when`
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
@@ -7,6 +8,7 @@ import com.example.airbnb.core.view.ItemDiffCallback
 import com.example.airbnb.databinding.ItemCalenderDateBinding
 
 class CalenderAdapter(
+    private val context: Context,
     private val onCalenderDateClick: (String, Int) -> Unit = { _, _ -> }
 ) :
     ListAdapter<String, CalenderViewHolder>(
@@ -16,11 +18,11 @@ class CalenderAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CalenderViewHolder {
         val binding =
             ItemCalenderDateBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return CalenderViewHolder(binding, onCalenderDateClick)
+        return CalenderViewHolder(context, binding, onCalenderDateClick)
     }
 
     override fun onBindViewHolder(holder: CalenderViewHolder, position: Int) {
-        holder.onBind(getItem(position))
+        holder.onBind(position, getItem(position))
     }
 
     companion object {
