@@ -99,5 +99,47 @@
             app:spanCount="7"
             tools:itemCount="42"
             tools:listitem="@layout/item_calender_date" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_when_select_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="30dp"
+            android:orientation="horizontal"
+            android:layout_marginStart="8dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@id/btn_when_navigation_next"
+            app:layout_constraintEnd_toEndOf="@id/view_when_calender_background"
+            app:layout_constraintStart_toStartOf="@id/view_when_calender_background"
+            tools:listitem="@layout/item_when_select_date" />
+
+        <TextView
+            android:id="@+id/tv_when_navigation_skip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="28dp"
+            android:text="건너뛰기"
+            android:textAppearance="@style/TextAppearance.Airbnb.cap_medium_16_underline"
+            app:layout_constraintBottom_toBottomOf="@id/view_when_calender_background"
+            app:layout_constraintStart_toStartOf="@id/view_when_calender_background" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_when_navigation_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="18dp"
+            android:background="@drawable/shape_black1_fill_10_rec"
+            android:minHeight="0dp"
+            android:paddingHorizontal="44dp"
+            android:paddingVertical="10dp"
+            android:text="다음"
+            android:textAppearance="@style/TextAppearance.Airbnb.sub_medium_16"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@id/view_when_calender_background"
+            app:layout_constraintEnd_toEndOf="@id/view_when_calender_background"
+            tools:ignore="TouchTargetSizeCheck" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
