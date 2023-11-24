@@ -40,7 +40,7 @@
     <string name="when_content_description_progress_bar">progress bar입니다.</string>
     <string name="tv_when_title">언제 여행을 가실 예정인가요?</string>
     <string name="tv_when_calender_year_month">2023 11월</string>
-    <string name="tv_when_navigation_skip">건너뛰기</string>
+    <string name="tv_when_navigation_skip"><u>건너뛰기</u></string>
     <string name="btn_when_navigation_next">다음</string>
     <string name="btn_when_select_exact_date">정확한 날짜</string>
     <string name="tv_calender_selection_date">날짜지정</string>
