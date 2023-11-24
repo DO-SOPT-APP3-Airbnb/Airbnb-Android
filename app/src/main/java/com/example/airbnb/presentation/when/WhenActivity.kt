@@ -9,12 +9,21 @@ import java.time.LocalDate
 class WhenActivity : BindingActivity<ActivityWhenBinding>(R.layout.activity_when) {
     override fun initView() {
         initCalenderAdapter()
+        initSelectDateAdapter()
     }
 
     private fun initCalenderAdapter() {
-        binding.rvWhenCalenderDate.adapter = CalenderAdapter(onCalenderDateClick = { it, position ->
+        binding.rvWhenCalenderDate.adapter =
+            CalenderAdapter(this, onCalenderDateClick = { it, position ->
+            }).apply {
+                submitList(createCustomCalendar())
+            }
+    }
+
+    private fun initSelectDateAdapter() {
+        binding.rvWhenSelectDate.adapter = SelectDateAdapter(this, onSelectDateClick = { _, _ ->
         }).apply {
-            submitList(createCustomCalendar())
+            submitList(listOf("1", "2", "3", "4", "5", "6", "7"))
         }
     }
 
