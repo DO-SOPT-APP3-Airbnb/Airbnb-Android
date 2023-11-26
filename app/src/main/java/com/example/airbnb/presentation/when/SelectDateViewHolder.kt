@@ -5,14 +5,19 @@ import com.example.airbnb.databinding.ItemWhenSelectDateBinding
 
 class SelectDateViewHolder(
     private val binding: ItemWhenSelectDateBinding,
-    private val onSelectDateClick: (String, Int) -> Unit = { _, _ -> }
+    private val onItemSelected: (Int) -> Unit
 ) :
     RecyclerView.ViewHolder(binding.root) {
-    fun onBind(data: String) {
-        binding.btnWhenSelectDate.text = "$data 일"
+
+    init {
         binding.btnWhenSelectDate.setOnClickListener {
-            binding.btnWhenSelectDate.isSelected = !binding.btnWhenSelectDate.isSelected
+            val currentPosition = adapterPosition
+            onItemSelected(currentPosition)
         }
-        onSelectDateClick(data, adapterPosition)
+    }
+
+    fun onBind(data: String, isSelected: Boolean) {
+        binding.btnWhenSelectDate.text = "$data 일"
+        binding.btnWhenSelectDate.isSelected = isSelected
     }
 }

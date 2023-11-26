@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.airbnb.core.view.ItemDiffCallback
 import com.example.airbnb.databinding.ItemWhenSelectDateBinding
@@ -17,6 +18,7 @@ class SelectDateAdapter(
 ) {
 
     private val inflater by lazy { LayoutInflater.from(context) }
+    private var selectedItemPosition = RecyclerView.NO_POSITION
 
     override fun getItemCount(): Int = currentList.size + 1
 
@@ -37,7 +39,9 @@ class SelectDateAdapter(
 
             else -> {
                 val binding = ItemWhenSelectDateBinding.inflate(inflater, parent, false)
-                SelectDateViewHolder(binding, onSelectDateClick)
+                SelectDateViewHolder(binding) { position ->
+                    handleItemClick(position)
+                }
             }
         }
 
@@ -45,9 +49,22 @@ class SelectDateAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         if (holder.itemViewType == VIEW_TYPE_DATE) {
-            (holder as SelectDateViewHolder).run { onBind(currentList[position - 1]) }
-        }else{
+            (holder as SelectDateViewHolder).run {
+                onBind(
+                    currentList[position - 1], selectedItemPosition == position
+                )
+            }
+        } else {
             (holder as SelectExactDateViewHolder).run { onBind() }
+        }
+    }
+
+    private fun handleItemClick(position: Int) {
+        if (selectedItemPosition != position) {
+            val previousSelectedPosition = selectedItemPosition
+            selectedItemPosition = position
+            notifyItemChanged(previousSelectedPosition)
+            notifyItemChanged(selectedItemPosition)
         }
     }
 
