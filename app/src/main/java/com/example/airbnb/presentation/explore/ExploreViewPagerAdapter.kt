@@ -32,15 +32,11 @@ class ExploreViewPagerAdapter(private val imageList: List<ExploreImage>) :
                 // 모서리 둥글
                 ivViewPagerImage.clipToOutline = true
 
-                tvViewPagerTitle.text = imageInfo.title
-                tvViewPagerLocation.text = imageInfo.location
-                tvViewPagerDate.text = imageInfo.date
-                tvViewPagerPrice.text = imageInfo.price
-                tvViewPagerScore.text = imageInfo.score
-
-                if (imageInfo.favorite) {
-                    ibViewPagerFavorite.setImageResource(R.drawable.ic_explore_favorite_selected)
-                }
+                tvViewPagerTitle.text = imageInfo.description
+                tvViewPagerLocation.text = imageInfo.distance.toString()
+                tvViewPagerDate.text = imageInfo.travelDate
+                tvViewPagerPrice.text = imageInfo.price.toString()
+                tvViewPagerScore.text = imageInfo.score.toString()
             }
         }
     }
