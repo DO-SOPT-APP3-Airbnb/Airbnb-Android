@@ -1,4 +1,4 @@
-package com.example.airbnb.presentation.`when`
+package com.example.airbnb.presentation.`when`.viewholder
 
 import androidx.recyclerview.widget.RecyclerView
 import com.example.airbnb.databinding.ItemWhenSelectDateBinding
@@ -16,7 +16,7 @@ class SelectDateViewHolder(
         }
     }
 
-    fun onBind(data: String, isSelected: Boolean) {
+    fun onBind(data: String, isSelected : Boolean) {
         binding.btnWhenSelectDate.text = "$data 일"
         binding.btnWhenSelectDate.isSelected = isSelected
     }

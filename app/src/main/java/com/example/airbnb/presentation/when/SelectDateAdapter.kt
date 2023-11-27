@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.airbnb.core.view.ItemDiffCallback
 import com.example.airbnb.databinding.ItemWhenSelectDateBinding
 import com.example.airbnb.databinding.ItemWhenSelectExactDateBinding
+import com.example.airbnb.presentation.`when`.viewholder.SelectDateViewHolder
 import com.example.airbnb.presentation.`when`.viewholder.SelectExactDateViewHolder
 
 class SelectDateAdapter(
@@ -34,7 +35,9 @@ class SelectDateAdapter(
         return when (viewType) {
             VIEW_TYPE_EXTRACT_DATE -> {
                 val binding = ItemWhenSelectExactDateBinding.inflate(inflater, parent, false)
-                SelectExactDateViewHolder(binding, onSelectDateClick)
+                SelectExactDateViewHolder(binding) { position ->
+                    handleItemClick(position)
+                }
             }
 
             else -> {
@@ -55,7 +58,7 @@ class SelectDateAdapter(
                 )
             }
         } else {
-            (holder as SelectExactDateViewHolder).run { onBind() }
+            (holder as SelectExactDateViewHolder).run { onBind(selectedItemPosition == position) }
         }
     }
 

@@ -1,4 +1,4 @@
-package com.example.airbnb.presentation.`when`
+package com.example.airbnb.presentation.`when`.viewholder
 
 import android.content.Context
 import androidx.core.content.ContextCompat
