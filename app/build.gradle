@@ -4,6 +4,9 @@ plugins {
     id 'org.jetbrains.kotlin.plugin.serialization' version '1.8.20'
 }
 
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
 android {
     namespace 'com.example.airbnb'
     compileSdk 33
@@ -16,6 +19,8 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "BASE_URL", properties["base.url"]
     }
 
     buildTypes {
@@ -34,6 +39,7 @@ android {
     buildFeatures {
         viewBinding true
         dataBinding true
+        buildConfig true
     }
 }
 

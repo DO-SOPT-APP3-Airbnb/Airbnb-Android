@@ -1,6 +1,7 @@
 package com.example.airbnb.data
 
 import android.util.Log
+import com.example.airbnb.BuildConfig.BASE_URL
 import com.example.airbnb.data.api.ExampleApiService
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.json.Json
@@ -26,7 +27,7 @@ object ApiFactory {
 
     val retrofit: Retrofit by lazy {
         Retrofit.Builder()
-            .baseUrl("")
+            .baseUrl(BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
             .build()
