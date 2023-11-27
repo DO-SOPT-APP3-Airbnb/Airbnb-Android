@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">airbnb</string>
+    <string name="bnv_item_search">검색</string>
+    <string name="bnv_item_wishlist">위시리스트</string>
+    <string name="bnv_item_trip">여행</string>
+    <string name="bnv_item_message">메시지</string>
+    <string name="bnv_item_profile">프로필</string>
+    <string name="top_nav_item_treehouse">통나무집</string>
+    <string name="top_nav_item_room">방</string>
+    <string name="top_nav_item_goodview">최고의 전망</string>
+    <string name="top_nav_item_seashore">해변 근처</string>
+    <string name="tv_main_search_where_to_go">어디로 여행가세요?</string>
+    <string name="tv_main_search_where_to_go_2">어디든지 • 언제든 일주일 • 게스트 추가</string>
+    <string name="search_bar_contentDescription">검색창</string>
+    <string name="room_contentDescription">룸 이미지</string>
+    <string name="iv_viewPager_score_star">별점 아이콘</string>
+    <string name="ib_viewPager_favorite">좋아요</string>
+    <string name="dummy_image1">R.string.ex_good1</string>
+    <string name="dummy_image2">R.string.ex_good2</string>
+    <string name="dummy_image3">R.string.ex_good3</string>
+    <string name="dummy_image4">R.string.ex_good4</string>
+
 </resources>
