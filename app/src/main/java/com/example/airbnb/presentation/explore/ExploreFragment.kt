@@ -37,37 +37,8 @@ class ExploreFragment : BindingFragment<FragmentExploreBinding>(R.layout.fragmen
 
             // tab, 뷰페이저 연결
             TabLayoutMediator(tapNavMain, vpExplore) { tab, position ->
-                when (position) {
-                    0 -> {
-                        tab.text = tabTitles[position]
-                        tab.icon = ContextCompat.getDrawable(
-                            requireContext(),
-                            tabImage[position],
-                        )
-                    }
-
-                    1 -> {
-                        tab.text = tabTitles[position]
-                        tab.icon =
-                            ContextCompat.getDrawable(requireContext(), tabImage[position])
-                    }
-
-                    2 -> {
-                        tab.text = tabTitles[position]
-                        tab.icon = ContextCompat.getDrawable(
-                            requireContext(),
-                            tabImage[position],
-                        )
-                    }
-
-                    3 -> {
-                        tab.text = tabTitles[position]
-                        tab.icon = ContextCompat.getDrawable(
-                            requireContext(),
-                            tabImage[position],
-                        )
-                    }
-                }
+                tab.text = tabTitles[position]
+                tab.icon = ContextCompat.getDrawable(requireContext(), tabImage[position])
             }.attach()
 
             // 화면 이동
