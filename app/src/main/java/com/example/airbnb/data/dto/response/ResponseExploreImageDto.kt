@@ -4,7 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class ResponseExploreImage(
+data class ResponseExploreImageDto(
     @SerialName("imageUrl")
     val imageUrl: String,
 )
