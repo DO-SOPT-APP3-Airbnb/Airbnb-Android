@@ -71,7 +71,7 @@ class ExploreFragment : BindingFragment<FragmentExploreBinding>(R.layout.fragmen
     }
 
     fun getApiImageInfo(tabId: Int) {
-        exploreViewModel.exploreImageList.observe(viewLifecycleOwner) { uiState ->
+        exploreViewModel.exploreInfoList.observe(viewLifecycleOwner) { uiState ->
             when (uiState) {
                 is UiState.Loading -> {
                     // 로딩
@@ -88,7 +88,7 @@ class ExploreFragment : BindingFragment<FragmentExploreBinding>(R.layout.fragmen
                 }
             }
         }
-        exploreViewModel.getImage(tabId)
+        exploreViewModel.getInfo(tabId)
     }
 
     fun goWhereActivity() {
