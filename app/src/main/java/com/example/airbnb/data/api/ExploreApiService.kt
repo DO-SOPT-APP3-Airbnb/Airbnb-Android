@@ -5,7 +5,7 @@ import com.example.airbnb.data.dto.response.ResponseExploreImage
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-interface ExploreImageApiService {
+interface ExploreApiService {
     companion object {
         const val API = "api"
         const val DORMITORY = "dormitory"
