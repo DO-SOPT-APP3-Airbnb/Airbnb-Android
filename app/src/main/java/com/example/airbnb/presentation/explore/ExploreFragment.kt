@@ -19,7 +19,7 @@ class ExploreFragment : BindingFragment<FragmentExploreBinding>(R.layout.fragmen
     }
 
     fun setViewPager() {
-        val dummyExploreImageList = DummyExploreImageList.dummyExploreImage
+        val dummyExploreImageList = DummyExploreImageList.dummyExploreImageData
         exploreViewPagerAdapter = ExploreViewPagerAdapter(dummyExploreImageList)
 
         binding.run {

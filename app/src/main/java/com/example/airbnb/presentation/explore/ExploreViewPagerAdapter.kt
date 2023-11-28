@@ -5,10 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.airbnb.R
-import com.example.airbnb.data.ExploreImage
+import com.example.airbnb.data.ExploreImageData
 import com.example.airbnb.databinding.ItemExploreViewpageBinding
 
-class ExploreViewPagerAdapter(private val imageList: List<ExploreImage>) :
+class ExploreViewPagerAdapter(private val imageList: List<ExploreImageData>) :
     RecyclerView.Adapter<ExploreViewPagerAdapter.PagerViewHolder>() {
 
     // private var imageList: List<ExploreImage> = emptyList()
@@ -22,7 +22,7 @@ class ExploreViewPagerAdapter(private val imageList: List<ExploreImage>) :
     class PagerViewHolder(private val binding: ItemExploreViewpageBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun onBindView(imageInfo: ExploreImage) {
+        fun onBindView(imageInfo: ExploreImageData) {
             binding.run {
                 ivViewPagerImage.load(imageInfo.Image) {
                     placeholder(R.drawable.shape_gray_fill_14_rect_image_loading)

@@ -1,6 +1,6 @@
 package com.example.airbnb.data
 
-data class ExploreImage(
+data class ExploreImageData(
     val Image: Int,
     val description: String,
     val distance: Int,
