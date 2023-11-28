@@ -2,6 +2,7 @@ package com.example.airbnb.presentation.explore
 
 import android.content.Intent
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.viewModels
 import com.example.airbnb.R
 import com.example.airbnb.core.base.BindingFragment
 import com.example.airbnb.core.view.UiState
@@ -9,14 +10,38 @@ import com.example.airbnb.data.DummyExploreImageList
 import com.example.airbnb.databinding.FragmentExploreBinding
 import com.example.airbnb.presentation.where.WhereActivity
 import com.google.android.material.tabs.TabLayoutMediator
+import timber.log.Timber
 
 class ExploreFragment : BindingFragment<FragmentExploreBinding>(R.layout.fragment_explore) {
 
     private lateinit var exploreViewPagerAdapter: ExploreViewPagerAdapter
-    private lateinit var exploreViewModel: ExploreViewModel
+    private val exploreViewModel by viewModels<ExploreViewModel>()
+
     override fun initView() {
         setViewPager()
         goWhereActivity()
+        imageObserve()
+        infoObserve()
+    }
+
+    private fun imageObserve() {
+        exploreViewModel.exploreImageList.observe(this) {
+            when (it) {
+                is UiState.Success -> Timber.d("성공")
+                is UiState.Failure -> Timber.d("실패")
+                is UiState.Loading -> Timber.d("로딩중")
+            }
+        }
+    }
+
+    private fun infoObserve() {
+        exploreViewModel.exploreInfoList.observe(this) {
+            when (it) {
+                is UiState.Success -> Timber.d("성공")
+                is UiState.Failure -> Timber.d("실패")
+                is UiState.Loading -> Timber.d("로딩중")
+            }
+        }
     }
 
     fun setViewPager() {
