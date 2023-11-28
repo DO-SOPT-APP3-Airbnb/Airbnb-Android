@@ -23,6 +23,8 @@ class ExploreViewModel : ViewModel() {
         _exploreInfoList
 
     init {
+        getImage(1)
+        getInfo(1)
     }
 
     fun getImage(imageId: Int) = viewModelScope.launch {
@@ -33,7 +35,9 @@ class ExploreViewModel : ViewModel() {
             {
                 _exploreImageList.value = UiState.Success(it)
             },
-            { _exploreImageList.value = UiState.Failure(it.message.toString()) },
+            {
+                _exploreImageList.value = UiState.Failure(it.message.toString())
+            },
         )
     }
 
