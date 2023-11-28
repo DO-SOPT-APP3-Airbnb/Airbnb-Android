@@ -12,12 +12,12 @@ interface ExploreApiService {
         const val DORMITORY = "dormitory"
     }
 
-    @GET("$API/$DORMITORY/image/{:imageId}")
+    @GET("$API/$DORMITORY/image/{imageId}")
     suspend fun getExploreImage(
         @Path("imageId") imageId: Int,
     ): BaseResponse<ResponseExploreImageDto>
 
-    @GET("$API/$DORMITORY/{:dormitoryId}")
+    @GET("$API/$DORMITORY/{dormitoryId}")
     suspend fun getExploreInfo(
         @Path("dormitoryId") dormitoryId: Int,
     ): BaseResponse<ResponseExploreInfoDto>

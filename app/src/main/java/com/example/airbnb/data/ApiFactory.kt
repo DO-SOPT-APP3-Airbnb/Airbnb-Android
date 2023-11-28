@@ -3,6 +3,7 @@ package com.example.airbnb.data
 import android.util.Log
 import com.example.airbnb.BuildConfig.BASE_URL
 import com.example.airbnb.data.api.ExampleApiService
+import com.example.airbnb.data.api.ExploreApiService
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.json.Json
 import okhttp3.Interceptor
@@ -38,4 +39,5 @@ object ApiFactory {
 
 object ServicePool {
     val exampleService = ApiFactory.create<ExampleApiService>()
+    val exploreService = ApiFactory.create<ExploreApiService>()
 }
