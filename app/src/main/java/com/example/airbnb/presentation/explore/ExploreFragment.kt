@@ -14,7 +14,11 @@ class ExploreFragment : BindingFragment<FragmentExploreBinding>(R.layout.fragmen
     private lateinit var exploreViewPagerAdapter: ExploreViewPagerAdapter
 
     override fun initView() {
-        // 로직 작성
+        setViewPager()
+        goWhereActivity()
+    }
+
+    fun setViewPager() {
         val dummyExploreImageList = DummyExploreImageList.dummyExploreImage
         exploreViewPagerAdapter = ExploreViewPagerAdapter(dummyExploreImageList)
 
@@ -40,7 +44,11 @@ class ExploreFragment : BindingFragment<FragmentExploreBinding>(R.layout.fragmen
                 tab.text = tabTitles[position]
                 tab.icon = ContextCompat.getDrawable(requireContext(), tabImage[position])
             }.attach()
+        }
+    }
 
+    fun goWhereActivity() {
+        binding.run {
             // 화면 이동
             ivMainSearchBar.setOnClickListener {
                 val intent = Intent(requireContext(), WhereActivity::class.java)
