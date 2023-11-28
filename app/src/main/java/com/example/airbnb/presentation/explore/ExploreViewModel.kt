@@ -25,7 +25,7 @@ class ExploreViewModel : ViewModel() {
     init {
     }
 
-    private fun getImage(imageId: Int) = viewModelScope.launch {
+    fun getImage(imageId: Int) = viewModelScope.launch {
         _exploreImageList.value = UiState.Loading
         runCatching {
             ServicePool.exploreService.getExploreImage(imageId)
@@ -37,7 +37,7 @@ class ExploreViewModel : ViewModel() {
         )
     }
 
-    private fun getInfo(dormitoryId: Int) = viewModelScope.launch {
+    fun getInfo(dormitoryId: Int) = viewModelScope.launch {
         _exploreInfoList.value = UiState.Loading
         runCatching {
             ServicePool.exploreService.getExploreInfo(dormitoryId)

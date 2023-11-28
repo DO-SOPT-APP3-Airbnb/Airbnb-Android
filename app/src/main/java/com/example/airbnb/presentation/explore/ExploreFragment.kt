@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.core.content.ContextCompat
 import com.example.airbnb.R
 import com.example.airbnb.core.base.BindingFragment
+import com.example.airbnb.core.view.UiState
 import com.example.airbnb.data.DummyExploreImageList
 import com.example.airbnb.databinding.FragmentExploreBinding
 import com.example.airbnb.presentation.where.WhereActivity
@@ -12,7 +13,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 class ExploreFragment : BindingFragment<FragmentExploreBinding>(R.layout.fragment_explore) {
 
     private lateinit var exploreViewPagerAdapter: ExploreViewPagerAdapter
-
+    private lateinit var exploreViewModel: ExploreViewModel
     override fun initView() {
         setViewPager()
         goWhereActivity()
@@ -45,6 +46,49 @@ class ExploreFragment : BindingFragment<FragmentExploreBinding>(R.layout.fragmen
                 tab.icon = ContextCompat.getDrawable(requireContext(), tabImage[position])
             }.attach()
         }
+    }
+
+    fun getApiImageUrl(tabId: Int) {
+        exploreViewModel.exploreImageList.observe(viewLifecycleOwner) { uiState ->
+            when (uiState) {
+                is UiState.Loading -> {
+                    // 로딩
+                }
+
+                is UiState.Success -> {
+                    uiState.data.run {
+                        // 첫 .data는 uiState의 data, 두번째 .data는 response의 data
+                        // imageUrlList.add(data?.imageUrl ?: "")
+                    }
+                }
+
+                is UiState.Failure -> {
+                    // 실패
+                }
+            }
+        }
+        exploreViewModel.getImage(tabId)
+    }
+
+    fun getApiImageInfo(tabId: Int) {
+        exploreViewModel.exploreImageList.observe(viewLifecycleOwner) { uiState ->
+            when (uiState) {
+                is UiState.Loading -> {
+                    // 로딩
+                }
+
+                is UiState.Success -> {
+                    uiState.data.run {
+                        // 첫 .data는 uiState의 data, 두번째 .data는 response의 data
+                    }
+                }
+
+                is UiState.Failure -> {
+                    // 실패
+                }
+            }
+        }
+        exploreViewModel.getImage(tabId)
     }
 
     fun goWhereActivity() {
