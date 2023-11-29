@@ -30,7 +30,7 @@ class ExploreViewModel : ViewModel() {
         _exploreImageLiveData.value = UiState.Loading
         _exploreInfoLiveData.value = UiState.Loading
 
-        val imageResult = runCatching {
+        runCatching {
             ServicePool.exploreService.getExploreImage(imageId)
         }.onSuccess {
             // 받은 이미지 리스트
@@ -40,7 +40,7 @@ class ExploreViewModel : ViewModel() {
             Log.e("imageResult", "imageUrls: $it")
         }
 
-        val infoResult = runCatching {
+        runCatching {
             ServicePool.exploreService.getExploreInfo(dormitoryId)
         }.onSuccess {
             _exploreInfoLiveData.value = UiState.Success(it.data)
