@@ -1,6 +1,5 @@
 package com.example.airbnb.presentation.explore
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -9,6 +8,7 @@ import com.example.airbnb.data.ServicePool
 import com.example.airbnb.data.dto.response.ResponseExploreImageDto
 import com.example.airbnb.data.dto.response.ResponseExploreInfoDto
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 class ExploreViewModel : ViewModel() {
 
@@ -26,27 +26,29 @@ class ExploreViewModel : ViewModel() {
     }
 
     fun getImageAndInfo(imageId: Int, dormitoryId: Int) = viewModelScope.launch {
-        Log.d("getImageAndInfo", "Id: $imageId, $dormitoryId")
         _exploreImageLiveData.value = UiState.Loading
         _exploreInfoLiveData.value = UiState.Loading
 
-        runCatching {
+        // 이미지 url api
+        val imageListResponse = runCatching {
             ServicePool.exploreService.getExploreImage(imageId)
         }.onSuccess {
             // 받은 이미지 리스트
             _exploreImageLiveData.value = UiState.Success(it.data)
-            Log.d("imageResult", "imageUrls:" + _exploreImageLiveData.value.toString())
+            Timber.d("성공")
         }.onFailure {
-            Log.e("imageResult", "imageUrls: $it")
+            Timber.d("실패")
         }
 
-        runCatching {
+        // 이미지 정보 api
+        val infoListResponse = runCatching {
             ServicePool.exploreService.getExploreInfo(dormitoryId)
         }.onSuccess {
+            // 받은 정보 리스트
             _exploreInfoLiveData.value = UiState.Success(it.data)
-            Log.d("infoResult", "infoResult:" + _exploreInfoLiveData.value.toString())
+            Timber.d("성공")
         }.onFailure {
-            Log.e("infoResult", "infoResult: $it")
+            Timber.d("실패")
         }
     }
 }

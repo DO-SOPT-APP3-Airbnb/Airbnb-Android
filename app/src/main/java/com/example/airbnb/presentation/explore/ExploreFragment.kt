@@ -42,7 +42,7 @@ class ExploreFragment : BindingFragment<FragmentExploreBinding>(R.layout.fragmen
         })
     }
 
-    private fun setViewPager(tabId: Int = 0) {
+    private fun setViewPager(tabId: Int) {
         val dummyExploreImageList = DummyExploreImageList.dummyExploreInfoData[tabId]
         exploreViewPagerAdapter = ExploreViewPagerAdapter(dummyExploreImageList)
 
