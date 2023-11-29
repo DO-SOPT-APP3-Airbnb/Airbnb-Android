@@ -10,9 +10,7 @@ class SelectExactDateViewHolder(
 
     init {
         binding.btnWhenSelectExactDate.setOnClickListener {
-            val currentPosition = adapterPosition
-            onItemSelected(currentPosition)
-
+            onItemSelected(adapterPosition)
         }
     }
 

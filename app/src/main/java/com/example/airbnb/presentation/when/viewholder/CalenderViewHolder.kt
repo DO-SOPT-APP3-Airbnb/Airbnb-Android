@@ -8,8 +8,7 @@ import com.example.airbnb.databinding.ItemCalenderDateBinding
 
 class CalenderViewHolder(
     private val context: Context,
-    private val binding: ItemCalenderDateBinding,
-    private val onCalenderDateClick: (String, Int) -> Unit = { _, _ -> }
+    private val binding: ItemCalenderDateBinding
 ) : RecyclerView.ViewHolder(binding.root) {
     fun onBind(position: Int, data: String) {
         if (position % 7 == 0) {
@@ -20,5 +19,8 @@ class CalenderViewHolder(
             )
         }
         binding.tvCalenderDate.text = data
+        binding.tvCalenderDate.setOnClickListener {
+            binding.tvCalenderDate.isSelected = !binding.tvCalenderDate.isSelected
+        }
     }
 }

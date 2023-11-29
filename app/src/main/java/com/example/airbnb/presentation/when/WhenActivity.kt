@@ -7,6 +7,7 @@ import java.time.DayOfWeek
 import java.time.LocalDate
 
 class WhenActivity : BindingActivity<ActivityWhenBinding>(R.layout.activity_when) {
+
     override fun initView() {
         initCalenderAdapter()
         initSelectDateAdapter()
@@ -14,15 +15,13 @@ class WhenActivity : BindingActivity<ActivityWhenBinding>(R.layout.activity_when
 
     private fun initCalenderAdapter() {
         binding.rvWhenCalenderDate.adapter =
-            CalenderAdapter(this, onCalenderDateClick = { _, _ ->
-            }).apply {
+            CalenderAdapter(this).apply {
                 submitList(createCustomCalendar())
             }
     }
 
     private fun initSelectDateAdapter() {
-        binding.rvWhenSelectDate.adapter = SelectDateAdapter(this, onSelectDateClick = { _, _ ->
-        }).apply {
+        binding.rvWhenSelectDate.adapter = SelectDateAdapter(this).apply {
             submitList(listOf("1", "2", "3", "4", "5", "6", "7"))
         }
     }

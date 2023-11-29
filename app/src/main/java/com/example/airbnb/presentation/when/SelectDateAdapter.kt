@@ -13,7 +13,7 @@ import com.example.airbnb.presentation.`when`.viewholder.SelectDateViewHolder
 import com.example.airbnb.presentation.`when`.viewholder.SelectExactDateViewHolder
 
 class SelectDateAdapter(
-    context: Context, private val onSelectDateClick: (String, Int) -> Unit = { _, _ -> }
+    context: Context, private val onSelectDateClick: (Int) -> Unit = { _ -> }
 ) : ListAdapter<String, ViewHolder>(
     SelectDateDiffCallback
 ) {
@@ -42,7 +42,7 @@ class SelectDateAdapter(
 
             else -> {
                 val binding = ItemWhenSelectDateBinding.inflate(inflater, parent, false)
-                SelectDateViewHolder(binding) { position ->
+                SelectDateViewHolder(binding, onSelectDateClick) { position ->
                     handleItemClick(position)
                 }
             }

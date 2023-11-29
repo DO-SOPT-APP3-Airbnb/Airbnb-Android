@@ -9,8 +9,7 @@ import com.example.airbnb.databinding.ItemCalenderDateBinding
 import com.example.airbnb.presentation.`when`.viewholder.CalenderViewHolder
 
 class CalenderAdapter(
-    private val context: Context,
-    private val onCalenderDateClick: (String, Int) -> Unit = { _, _ -> }
+    private val context: Context
 ) :
     ListAdapter<String, CalenderViewHolder>(
         ArticleAllDiffCallback
@@ -19,7 +18,7 @@ class CalenderAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CalenderViewHolder {
         val binding =
             ItemCalenderDateBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return CalenderViewHolder(context, binding, onCalenderDateClick)
+        return CalenderViewHolder(context, binding)
     }
 
     override fun onBindViewHolder(holder: CalenderViewHolder, position: Int) {
