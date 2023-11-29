@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">airbnb</string>
+    <!--explore-->
     <string name="bnv_item_search">검색</string>
     <string name="bnv_item_wishlist">위시리스트</string>
     <string name="bnv_item_trip">여행</string>
@@ -19,5 +20,15 @@
     <string name="dummy_image2">R.string.ex_good2</string>
     <string name="dummy_image3">R.string.ex_good3</string>
     <string name="dummy_image4">R.string.ex_good4</string>
-
+    <!--who-->
+    <string name="who_adult_title">성인</string>
+    <string name="who_adult_description">13세 이상</string>
+    <string name="who_kids_title">어린이</string>
+    <string name="who_kids_description">2~12세</string>
+    <string name="who_toddler_title">유아</string>
+    <string name="who_toddler_description">2세 미만</string>
+    <string name="who_pet_title">반려동물</string>
+    <string name="who_pet_description"><u>반려동물을 동반하시나요?</u></string>
+    <string name="who_title">누구와 함께 여행가시나요?</string>
+    <string name="where_title">솝트님,\n이번엔 어디로 여행가시나요?</string>
 </resources>

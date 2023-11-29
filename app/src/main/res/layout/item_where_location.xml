@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="location_item"
+            type="com.example.airbnb.presentation.where.WhereItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_where_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_where_location_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_gray_icon_fill_top10_rect"
+            android:paddingStart="20dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="8dp"
+            android:text="@{location_item.locationName}"
+            android:textAppearance="@style/TextAppearance.Airbnb.sub_medium_16"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="전 세계 어디든 좋아요." />
+
+        <View
+            android:id="@+id/view_where_background"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/shape_white_40_fill_bot10_rect"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_where_location_name" />
+
+        <ImageView
+            android:id="@+id/iv_where_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img_where_map_world_test"
+            app:layout_constraintBottom_toBottomOf="@id/view_where_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/view_where_background" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

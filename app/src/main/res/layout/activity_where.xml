@@ -8,15 +8,57 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/img_where_background">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="where / 언지"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <ImageView
+            android:id="@+id/iv_where_progress_bar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="11dp"
+            android:layout_marginTop="18dp"
+            android:src="@drawable/ic_who_progress_bar"
+            app:layout_constraintDimensionRatio="13:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_where_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="9dp"
+            android:text="@string/where_title"
+            android:textAppearance="@style/TextAppearance.Airbnb.title_bold_25"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_where_progress_bar" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp_where_location"
+            android:layout_width="match_parent"
+            android:layout_height="195dp"
+            android:layout_marginBottom="10dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:paddingHorizontal="13dp"
+            app:layout_constraintBottom_toTopOf="@id/tab_where_location"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_where_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="9dp"
+            android:background="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:tabBackground="@drawable/sel_where_tab_item"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="0dp" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
