@@ -20,7 +20,7 @@ class ExploreFragment : BindingFragment<FragmentExploreBinding>(R.layout.fragmen
         setViewPager(0)
         goWhereActivity()
         apiImageUrlObserve()
-        apiImageInfoObserve()
+       // apiImageInfoObserve()
         selectTab()
     }
 
@@ -43,13 +43,13 @@ class ExploreFragment : BindingFragment<FragmentExploreBinding>(R.layout.fragmen
     }
 
     private fun setViewPager(tabId: Int) {
-        val dummyExploreImageList = DummyExploreImageList.dummyExploreInfoData[tabId]
-        exploreViewPagerAdapter = ExploreViewPagerAdapter(dummyExploreImageList)
+       // val dummyExploreImageList = DummyExploreImageList.dummyExploreInfoData[tabId]
+        // exploreViewPagerAdapter = ExploreViewPagerAdapter(dummyExploreImageList)
 
         binding.run {
             // 뷰페이저 어댑터 연결
-            vpExplore.adapter = exploreViewPagerAdapter
-            indicatorViewpagerImageDots.attachTo(binding.vpExplore)
+           // vpExplore.adapter = exploreViewPagerAdapter
+           // indicatorViewpagerImageDots.attachTo(binding.vpExplore)
 
             // 뷰페이저 화면 디자인
             vpExplore.offscreenPageLimit = 3
@@ -63,22 +63,26 @@ class ExploreFragment : BindingFragment<FragmentExploreBinding>(R.layout.fragmen
     private fun apiImageUrlObserve() {
         exploreViewModel.exploreImageLiveData.observe(this) {
             when (it) {
-                is UiState.Success -> Timber.d("성공")
+                is UiState.Success -> {
+                    val dummyExploreImageList = it.data
+                    exploreViewPagerAdapter = ExploreViewPagerAdapter(dummyExploreImageList)
+                    binding.vpExplore.adapter = exploreViewPagerAdapter
+                }
                 is UiState.Failure -> Timber.d("실패")
                 is UiState.Loading -> Timber.d("로딩중")
             }
         }
     }
 
-    private fun apiImageInfoObserve() {
-        exploreViewModel.exploreInfoLiveData.observe(this) {
-            when (it) {
-                is UiState.Success -> Timber.d("성공")
-                is UiState.Failure -> Timber.d("실패")
-                is UiState.Loading -> Timber.d("로딩중")
-            }
-        }
-    }
+//    private fun apiImageInfoObserve() {
+//        exploreViewModel.exploreInfoLiveData.observe(this) {
+//            when (it) {
+//                is UiState.Success -> Timber.d("성공")
+//                is UiState.Failure -> Timber.d("실패")
+//                is UiState.Loading -> Timber.d("로딩중")
+//            }
+//        }
+//    }
 
     private fun goWhereActivity() {
         binding.run {
