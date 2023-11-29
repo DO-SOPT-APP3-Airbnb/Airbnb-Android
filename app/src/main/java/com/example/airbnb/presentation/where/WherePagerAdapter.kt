@@ -11,14 +11,6 @@ import com.example.airbnb.presentation.`when`.WhenActivity
 class WherePagerAdapter(private val items: List<WhereItem>) :
     RecyclerView.Adapter<WherePagerAdapter.ViewHolder>() {
 
-    /* viewPager 클릭 이벤트 잘 작동하는지 확인용 테스트 코드
-    interface OnItemClickListener {
-        fun onItemClick(item: WhereItem)
-    }
-
-    var onItemClickListener: OnItemClickListener? = null
-     */
-
     // 새로운 뷰 홀더 객체를 생성하고 반환
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
