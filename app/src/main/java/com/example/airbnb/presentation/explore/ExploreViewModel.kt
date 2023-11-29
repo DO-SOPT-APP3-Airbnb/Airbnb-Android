@@ -12,44 +12,42 @@ import kotlinx.coroutines.launch
 
 class ExploreViewModel : ViewModel() {
 
-    private val _exploreImageList: MutableLiveData<UiState<BaseResponse<ResponseExploreImageDto>>> =
+    private val _exploreImageLiveData: MutableLiveData<UiState<BaseResponse<ResponseExploreImageDto>>> =
         MutableLiveData()
-    val exploreImageList: MutableLiveData<UiState<BaseResponse<ResponseExploreImageDto>>> =
-        _exploreImageList
+    val exploreImageLiveData: MutableLiveData<UiState<BaseResponse<ResponseExploreImageDto>>> =
+        _exploreImageLiveData
 
-    private val _exploreInfoList: MutableLiveData<UiState<BaseResponse<ResponseExploreInfoDto>>> =
+    private val _exploreInfoLiveData: MutableLiveData<UiState<BaseResponse<ResponseExploreInfoDto>>> =
         MutableLiveData()
-    val exploreInfoList: MutableLiveData<UiState<BaseResponse<ResponseExploreInfoDto>>> =
-        _exploreInfoList
+    val exploreInfoLiveData: MutableLiveData<UiState<BaseResponse<ResponseExploreInfoDto>>> =
+        _exploreInfoLiveData
 
     init {
-        getImage(1)
-        getInfo(1)
     }
 
     fun getImage(imageId: Int) = viewModelScope.launch {
-        _exploreImageList.value = UiState.Loading
+        _exploreImageLiveData.value = UiState.Loading
         runCatching {
             ServicePool.exploreService.getExploreImage(imageId)
         }.fold(
             {
-                _exploreImageList.value = UiState.Success(it)
+                _exploreImageLiveData.value = UiState.Success(it)
             },
             {
-                _exploreImageList.value = UiState.Failure(it.message.toString())
+                _exploreImageLiveData.value = UiState.Failure(it.message.toString())
             },
         )
     }
 
     fun getInfo(dormitoryId: Int) = viewModelScope.launch {
-        _exploreInfoList.value = UiState.Loading
+        _exploreInfoLiveData.value = UiState.Loading
         runCatching {
             ServicePool.exploreService.getExploreInfo(dormitoryId)
         }.fold(
             {
-                _exploreInfoList.value = UiState.Success(it)
+                _exploreInfoLiveData.value = UiState.Success(it)
             },
-            { _exploreInfoList.value = UiState.Failure(it.message.toString()) },
+            { _exploreInfoLiveData.value = UiState.Failure(it.message.toString()) },
         )
     }
 }

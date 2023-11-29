@@ -1,12 +1,13 @@
 package com.example.airbnb.presentation.explore
 
 import android.content.Intent
+import android.util.Log
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import com.example.airbnb.R
 import com.example.airbnb.core.base.BindingFragment
 import com.example.airbnb.core.view.UiState
-import com.example.airbnb.data.DummyExploreImageList
+import com.example.airbnb.data.ExploreInfoData
 import com.example.airbnb.databinding.FragmentExploreBinding
 import com.example.airbnb.presentation.where.WhereActivity
 import com.google.android.material.tabs.TabLayoutMediator
@@ -15,18 +16,34 @@ class ExploreFragment : BindingFragment<FragmentExploreBinding>(R.layout.fragmen
 
     private lateinit var exploreViewPagerAdapter: ExploreViewPagerAdapter
     private val exploreViewModel by viewModels<ExploreViewModel>()
+    private val exploreImageTotal: MutableList<String> = mutableListOf()
+    private var exploreInfoTotal = ExploreInfoData(
+        Image = "null",
+        description = "null",
+        distance = 0,
+        travelDate = "null",
+        price = 0,
+        score = 0.0,
+    )
 
     override fun initView() {
         setViewPager()
         goWhereActivity()
-
-        getApiImageUrl(1)
-        getApiImageInfo(1)
     }
 
     fun setViewPager() {
-        val dummyExploreImageList = DummyExploreImageList.dummyExploreImageData
-        exploreViewPagerAdapter = ExploreViewPagerAdapter(dummyExploreImageList)
+        val exploreTotalList: MutableList<ExploreInfoData> = mutableListOf()
+
+        // 4번 api 호출하기
+        for (i in 0..3) {
+            getApiImageUrl(i + 1)
+            getApiImageInfo(i + 1)
+            exploreTotalList.add(exploreInfoTotal)
+
+            Log.d("TAG", "setViewPager: $exploreTotalList")
+        }
+
+        exploreViewPagerAdapter = ExploreViewPagerAdapter(exploreTotalList)
 
         binding.run {
             // 뷰페이저 어댑터 연결
@@ -54,7 +71,7 @@ class ExploreFragment : BindingFragment<FragmentExploreBinding>(R.layout.fragmen
     }
 
     fun getApiImageUrl(tabId: Int) {
-        exploreViewModel.exploreImageList.observe(viewLifecycleOwner) { uiState ->
+        exploreViewModel.exploreImageLiveData.observe(viewLifecycleOwner) { uiState ->
             when (uiState) {
                 is UiState.Loading -> {
                     // 로딩
@@ -64,6 +81,8 @@ class ExploreFragment : BindingFragment<FragmentExploreBinding>(R.layout.fragmen
                     uiState.data.run {
                         // 첫 .data는 uiState의 data, 두번째 .data는 response의 data
                         // imageUrlList.add(data?.imageUrl ?: "")
+                        exploreImageTotal.add(data?.imageUrl ?: "null")
+                        Log.d("TAG", "getApiImageUrl: $exploreImageTotal")
                     }
                 }
 
@@ -76,7 +95,7 @@ class ExploreFragment : BindingFragment<FragmentExploreBinding>(R.layout.fragmen
     }
 
     fun getApiImageInfo(tabId: Int) {
-        exploreViewModel.exploreInfoList.observe(viewLifecycleOwner) { uiState ->
+        exploreViewModel.exploreInfoLiveData.observe(viewLifecycleOwner) { uiState ->
             when (uiState) {
                 is UiState.Loading -> {
                     // 로딩
@@ -85,6 +104,25 @@ class ExploreFragment : BindingFragment<FragmentExploreBinding>(R.layout.fragmen
                 is UiState.Success -> {
                     uiState.data.run {
                         // 첫 .data는 uiState의 data, 두번째 .data는 response의 data
+                        exploreInfoTotal = data?.let {
+                            ExploreInfoData(
+                                Image = exploreImageTotal[tabId],
+                                description = it.description,
+                                distance = it.distance,
+                                travelDate = it.travelDate,
+                                price = it.price,
+                                score = it.scope,
+                            )
+                        } ?: run {
+                            ExploreInfoData(
+                                Image = "null",
+                                description = "null",
+                                distance = 0,
+                                travelDate = "null",
+                                price = 0,
+                                score = 0.0,
+                            )
+                        }
                     }
                 }
 
