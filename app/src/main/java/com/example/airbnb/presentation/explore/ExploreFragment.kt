@@ -7,43 +7,29 @@ import androidx.fragment.app.viewModels
 import com.example.airbnb.R
 import com.example.airbnb.core.base.BindingFragment
 import com.example.airbnb.core.view.UiState
+import com.example.airbnb.data.DummyExploreImageList
 import com.example.airbnb.data.ExploreInfoData
 import com.example.airbnb.databinding.FragmentExploreBinding
 import com.example.airbnb.presentation.where.WhereActivity
 import com.google.android.material.tabs.TabLayoutMediator
+import timber.log.Timber
 
 class ExploreFragment : BindingFragment<FragmentExploreBinding>(R.layout.fragment_explore) {
 
     private lateinit var exploreViewPagerAdapter: ExploreViewPagerAdapter
     private val exploreViewModel by viewModels<ExploreViewModel>()
-    private val exploreImageTotal: MutableList<String> = mutableListOf()
-    private var exploreInfoTotal = ExploreInfoData(
-        Image = "null",
-        description = "null",
-        distance = 0,
-        travelDate = "null",
-        price = 0,
-        score = 0.0,
-    )
+
 
     override fun initView() {
         setViewPager()
         goWhereActivity()
+        apiImageUrlObserve()
+        apiImageInfoObserve()
     }
 
     fun setViewPager() {
-        val exploreTotalList: MutableList<ExploreInfoData> = mutableListOf()
-
-        // 4번 api 호출하기
-        for (i in 0..3) {
-            getApiImageUrl(i + 1)
-            getApiImageInfo(i + 1)
-            exploreTotalList.add(exploreInfoTotal)
-
-            Log.d("TAG", "setViewPager: $exploreTotalList")
-        }
-
-        exploreViewPagerAdapter = ExploreViewPagerAdapter(exploreTotalList)
+        val dummyExploreImageList = DummyExploreImageList.dummyExploreInfoData
+        exploreViewPagerAdapter = ExploreViewPagerAdapter(dummyExploreImageList)
 
         binding.run {
             // 뷰페이저 어댑터 연결
@@ -70,68 +56,24 @@ class ExploreFragment : BindingFragment<FragmentExploreBinding>(R.layout.fragmen
         }
     }
 
-    fun getApiImageUrl(tabId: Int) {
-        exploreViewModel.exploreImageLiveData.observe(viewLifecycleOwner) { uiState ->
-            when (uiState) {
-                is UiState.Loading -> {
-                    // 로딩
-                }
-
-                is UiState.Success -> {
-                    uiState.data.run {
-                        // 첫 .data는 uiState의 data, 두번째 .data는 response의 data
-                        // imageUrlList.add(data?.imageUrl ?: "")
-                        exploreImageTotal.add(data?.imageUrl ?: "null")
-                        Log.d("TAG", "getApiImageUrl: $exploreImageTotal")
-                    }
-                }
-
-                is UiState.Failure -> {
-                    // 실패
-                }
+    // api 확인 함수
+    private fun apiImageUrlObserve() {
+        exploreViewModel.exploreImageLiveData.observe(this) {
+            when (it) {
+                is UiState.Success -> Timber.d("성공")
+                is UiState.Failure -> Timber.d("실패")
+                is UiState.Loading -> Timber.d("로딩중")
             }
         }
-        exploreViewModel.getImage(tabId)
     }
-
-    fun getApiImageInfo(tabId: Int) {
-        exploreViewModel.exploreInfoLiveData.observe(viewLifecycleOwner) { uiState ->
-            when (uiState) {
-                is UiState.Loading -> {
-                    // 로딩
-                }
-
-                is UiState.Success -> {
-                    uiState.data.run {
-                        // 첫 .data는 uiState의 data, 두번째 .data는 response의 data
-                        exploreInfoTotal = data?.let {
-                            ExploreInfoData(
-                                Image = exploreImageTotal[tabId],
-                                description = it.description,
-                                distance = it.distance,
-                                travelDate = it.travelDate,
-                                price = it.price,
-                                score = it.scope,
-                            )
-                        } ?: run {
-                            ExploreInfoData(
-                                Image = "null",
-                                description = "null",
-                                distance = 0,
-                                travelDate = "null",
-                                price = 0,
-                                score = 0.0,
-                            )
-                        }
-                    }
-                }
-
-                is UiState.Failure -> {
-                    // 실패
-                }
+    private fun apiImageInfoObserve() {
+        exploreViewModel.exploreInfoLiveData.observe(this) {
+            when (it) {
+                is UiState.Success -> Timber.d("성공")
+                is UiState.Failure -> Timber.d("실패")
+                is UiState.Loading -> Timber.d("로딩중")
             }
         }
-        exploreViewModel.getInfo(tabId)
     }
 
     fun goWhereActivity() {

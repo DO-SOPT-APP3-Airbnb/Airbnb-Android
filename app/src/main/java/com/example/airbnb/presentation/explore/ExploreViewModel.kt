@@ -25,29 +25,26 @@ class ExploreViewModel : ViewModel() {
     init {
     }
 
-    fun getImage(imageId: Int) = viewModelScope.launch {
+    fun getImageAndInfo(imageId: Int, dormitoryId: Int) = viewModelScope.launch {
         _exploreImageLiveData.value = UiState.Loading
-        runCatching {
-            ServicePool.exploreService.getExploreImage(imageId)
-        }.fold(
-            {
-                _exploreImageLiveData.value = UiState.Success(it)
-            },
-            {
-                _exploreImageLiveData.value = UiState.Failure(it.message.toString())
-            },
-        )
-    }
-
-    fun getInfo(dormitoryId: Int) = viewModelScope.launch {
         _exploreInfoLiveData.value = UiState.Loading
-        runCatching {
+
+        val imageResult = runCatching {
+            ServicePool.exploreService.getExploreImage(imageId)
+        }
+
+        val infoResult = runCatching {
             ServicePool.exploreService.getExploreInfo(dormitoryId)
-        }.fold(
-            {
-                _exploreInfoLiveData.value = UiState.Success(it)
-            },
-            { _exploreInfoLiveData.value = UiState.Failure(it.message.toString()) },
+        }
+
+        imageResult.fold(
+            { _exploreImageLiveData.value = UiState.Success(it) },
+            { _exploreImageLiveData.value = UiState.Failure(it.message.toString()) }
+        )
+
+        infoResult.fold(
+            { _exploreInfoLiveData.value = UiState.Success(it) },
+            { _exploreInfoLiveData.value = UiState.Failure(it.message.toString()) }
         )
     }
 }

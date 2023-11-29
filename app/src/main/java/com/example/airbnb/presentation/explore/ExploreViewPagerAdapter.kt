@@ -8,7 +8,7 @@ import com.example.airbnb.R
 import com.example.airbnb.data.ExploreInfoData
 import com.example.airbnb.databinding.ItemExploreViewpageBinding
 
-class ExploreViewPagerAdapter(private val imageList: MutableList<ExploreInfoData>) :
+class ExploreViewPagerAdapter(private val imageList: List<ExploreInfoData>) :
     RecyclerView.Adapter<ExploreViewPagerAdapter.PagerViewHolder>() {
 
     // private var imageList: List<ExploreImage> = emptyList()
@@ -46,11 +46,5 @@ class ExploreViewPagerAdapter(private val imageList: MutableList<ExploreInfoData
     override fun onBindViewHolder(holder: PagerViewHolder, position: Int) {
         val exploreImage = imageList[position]
         holder.onBindView(exploreImage)
-    }
-
-    fun updateData(exploreInfoTotal: ExploreInfoData) {
-        imageList.clear()
-        imageList.add(exploreInfoTotal)
-        notifyDataSetChanged()
     }
 }
