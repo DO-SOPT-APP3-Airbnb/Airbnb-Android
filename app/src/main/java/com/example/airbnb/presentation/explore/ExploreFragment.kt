@@ -40,19 +40,19 @@ class ExploreFragment : BindingFragment<FragmentExploreBinding>(R.layout.fragmen
             vpExplore.offscreenPageLimit = 3
             vpExplore.setPadding(40, 0, 40, 0)
 
-            val tabTitles = listOf("통나무집", "방", "최고의 전망", "해변 근처")
-            val tabImage = listOf(
-                R.drawable.ic_explore_treehouse,
-                R.drawable.ic_explore_room,
-                R.drawable.ic_explore_goodview,
-                R.drawable.ic_explore_seashore,
-            )
-
-            // tab, 뷰페이저 연결
-            TabLayoutMediator(tapNavMain, vpExplore) { tab, position ->
-                tab.text = tabTitles[position]
-                tab.icon = ContextCompat.getDrawable(requireContext(), tabImage[position])
-            }.attach()
+//            val tabTitles = listOf("통나무집", "방", "최고의 전망", "해변 근처")
+//            val tabImage = listOf(
+//                R.drawable.ic_explore_treehouse,
+//                R.drawable.ic_explore_room,
+//                R.drawable.ic_explore_goodview,
+//                R.drawable.ic_explore_seashore,
+//            )
+//
+//            // tab, 뷰페이저 연결
+//            TabLayoutMediator(tapNavMain, vpExplore) { tab, position ->
+//                tab.text = tabTitles[position]
+//                tab.icon = ContextCompat.getDrawable(requireContext(), tabImage[position])
+//            }.attach()
         }
     }
 
