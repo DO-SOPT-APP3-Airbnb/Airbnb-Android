@@ -1,17 +1,14 @@
 package com.example.airbnb.presentation.explore
 
 import android.content.Intent
-import android.util.Log
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import com.example.airbnb.R
 import com.example.airbnb.core.base.BindingFragment
 import com.example.airbnb.core.view.UiState
 import com.example.airbnb.data.DummyExploreImageList
-import com.example.airbnb.data.ExploreInfoData
 import com.example.airbnb.databinding.FragmentExploreBinding
 import com.example.airbnb.presentation.where.WhereActivity
-import com.google.android.material.tabs.TabLayoutMediator
+import com.google.android.material.tabs.TabLayout
 import timber.log.Timber
 
 class ExploreFragment : BindingFragment<FragmentExploreBinding>(R.layout.fragment_explore) {
@@ -19,16 +16,35 @@ class ExploreFragment : BindingFragment<FragmentExploreBinding>(R.layout.fragmen
     private lateinit var exploreViewPagerAdapter: ExploreViewPagerAdapter
     private val exploreViewModel by viewModels<ExploreViewModel>()
 
-
     override fun initView() {
-        setViewPager()
+        setViewPager(0)
         goWhereActivity()
         apiImageUrlObserve()
         apiImageInfoObserve()
+        selectTab()
+
     }
 
-    fun setViewPager() {
-        val dummyExploreImageList = DummyExploreImageList.dummyExploreInfoData
+    private fun selectTab() {
+        binding.tapNavMain.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                // Handle tab select
+                setViewPager(tab?.position ?: 0)
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+                // Handle tab reselect
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+                // Handle tab unselect
+            }
+        })
+    }
+
+    private fun setViewPager(tabId: Int = 0) {
+        val dummyExploreImageList = DummyExploreImageList.dummyExploreInfoData[tabId]
         exploreViewPagerAdapter = ExploreViewPagerAdapter(dummyExploreImageList)
 
         binding.run {
@@ -39,20 +55,6 @@ class ExploreFragment : BindingFragment<FragmentExploreBinding>(R.layout.fragmen
             // 뷰페이저 화면 디자인
             vpExplore.offscreenPageLimit = 3
             vpExplore.setPadding(40, 0, 40, 0)
-
-//            val tabTitles = listOf("통나무집", "방", "최고의 전망", "해변 근처")
-//            val tabImage = listOf(
-//                R.drawable.ic_explore_treehouse,
-//                R.drawable.ic_explore_room,
-//                R.drawable.ic_explore_goodview,
-//                R.drawable.ic_explore_seashore,
-//            )
-//
-//            // tab, 뷰페이저 연결
-//            TabLayoutMediator(tapNavMain, vpExplore) { tab, position ->
-//                tab.text = tabTitles[position]
-//                tab.icon = ContextCompat.getDrawable(requireContext(), tabImage[position])
-//            }.attach()
         }
     }
 
@@ -66,6 +68,7 @@ class ExploreFragment : BindingFragment<FragmentExploreBinding>(R.layout.fragmen
             }
         }
     }
+
     private fun apiImageInfoObserve() {
         exploreViewModel.exploreInfoLiveData.observe(this) {
             when (it) {
@@ -76,7 +79,7 @@ class ExploreFragment : BindingFragment<FragmentExploreBinding>(R.layout.fragmen
         }
     }
 
-    fun goWhereActivity() {
+    private fun goWhereActivity() {
         binding.run {
             // 화면 이동
             ivMainSearchBar.setOnClickListener {
