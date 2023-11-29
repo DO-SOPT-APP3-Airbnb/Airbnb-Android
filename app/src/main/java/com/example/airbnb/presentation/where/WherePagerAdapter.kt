@@ -9,17 +9,17 @@ import com.example.airbnb.databinding.ItemWhereLocationBinding
 import com.example.airbnb.presentation.`when`.WhenActivity
 
 class WherePagerAdapter(private val items: List<WhereItem>) :
-    RecyclerView.Adapter<WherePagerAdapter.ViewHolder>() {
+    RecyclerView.Adapter<WhereViewHolder>() {
 
     // 새로운 뷰 홀더 객체를 생성하고 반환
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WhereViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemWhereLocationBinding.inflate(inflater, parent, false)
-        return ViewHolder(binding)
+        return WhereViewHolder(binding)
     }
 
     // 각 항목에 해당하는 데이터를 뷰 홀더에 바인딩
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: WhereViewHolder, position: Int) {
         val item = items[position]
         holder.onBind(item)
 
@@ -27,7 +27,7 @@ class WherePagerAdapter(private val items: List<WhereItem>) :
     }
 
     private fun updateItemBackground(
-        holder: ViewHolder,
+        holder: WhereViewHolder,
         item: WhereItem
     ) {
         holder.itemView.setOnClickListener {
@@ -49,15 +49,4 @@ class WherePagerAdapter(private val items: List<WhereItem>) :
     // 어댑터가 관리하는 아이템 리스트 반환
     fun getItems(): List<WhereItem> = items
 
-    // 뷰 홀더 객체를 정의
-    inner class ViewHolder(val binding: ItemWhereLocationBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-        fun onBind(item: WhereItem) {
-            binding.locationItem = item
-
-            if (!item.isClicked) {
-                binding.tvWhereLocationName.setBackgroundResource(R.drawable.shape_gray_icon_fill_top10_rect)
-            }
-        }
-    }
 }
