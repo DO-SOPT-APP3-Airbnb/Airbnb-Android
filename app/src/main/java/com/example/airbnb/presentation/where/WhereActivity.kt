@@ -19,14 +19,6 @@ class WhereActivity : BindingActivity<ActivityWhereBinding>(R.layout.activity_wh
         viewPager = binding.vpWhereLocation
         adapter = WherePagerAdapter(getLocations())  // 서버 API 데이터로 교체해야 함!
 
-        /* viewPager 클릭 이벤트 잘 작동하는지 확인용 테스트 코드
-        adapter.onItemClickListener = object : WherePagerAdapter.OnItemClickListener {
-            override fun onItemClick(item: WhereItem) {
-                Toast.makeText(this@WhereActivity, "눌러짐 $item", Toast.LENGTH_SHORT).show()
-            }
-        }
-         */
-
         initViewPager()
         initTabLayout()
     }
