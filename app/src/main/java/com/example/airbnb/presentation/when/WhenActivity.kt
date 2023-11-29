@@ -1,8 +1,10 @@
 package com.example.airbnb.presentation.`when`
 
+import android.content.Intent
 import com.example.airbnb.R
 import com.example.airbnb.core.base.BindingActivity
 import com.example.airbnb.databinding.ActivityWhenBinding
+import com.example.airbnb.presentation.who.WhoActivity
 import java.time.DayOfWeek
 import java.time.LocalDate
 
@@ -11,6 +13,14 @@ class WhenActivity : BindingActivity<ActivityWhenBinding>(R.layout.activity_when
     override fun initView() {
         initCalenderAdapter()
         initSelectDateAdapter()
+        initWhenClickListener()
+    }
+
+    private fun initWhenClickListener() {
+        with(binding) {
+            tvWhenNavigationSkip.setOnClickListener { navigateToSignInWho() }
+            btnWhenNavigationNext.setOnClickListener { navigateToSignInWho() }
+        }
     }
 
     private fun initCalenderAdapter() {
@@ -47,6 +57,14 @@ class WhenActivity : BindingActivity<ActivityWhenBinding>(R.layout.activity_when
         }
 
         return calendarList
+    }
+
+    private fun navigateToSignInWho() {
+        Intent(this, WhoActivity::class.java).apply {
+            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(this)
+            finish()
+        }
     }
 }
 
