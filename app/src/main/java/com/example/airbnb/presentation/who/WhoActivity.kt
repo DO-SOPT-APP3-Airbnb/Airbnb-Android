@@ -3,63 +3,43 @@ package com.example.airbnb.presentation.who
 import android.graphics.Paint
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.airbnb.R
 import com.example.airbnb.core.base.BindingActivity
 import com.example.airbnb.databinding.ActivityWhoBinding
+import com.example.airbnb.databinding.ItemWhoCountBinding
 
 class WhoActivity : BindingActivity<ActivityWhoBinding>(R.layout.activity_who) {
 
-    lateinit var whoViewModel: WhoViewModel
+    private val whoViewModel by viewModels<WhoViewModel>()
 
     override fun initView() {
-        whoViewModel = ViewModelProvider(this).get(WhoViewModel::class.java)
-
         binding.itemWhoPet.tvWhoDescription.paintFlags = Paint.UNDERLINE_TEXT_FLAG
 
-        setCountObserver(
-            "adult",
-            binding.itemWhoAdult.tvWhoCount,
-            binding.itemWhoAdult.ibWhoCountIncrease,
-            binding.itemWhoAdult.ibWhoCountDecrease
-        )
-        setCountObserver(
-            "kids",
-            binding.itemWhoKids.tvWhoCount,
-            binding.itemWhoKids.ibWhoCountIncrease,
-            binding.itemWhoKids.ibWhoCountDecrease
-        )
-        setCountObserver(
-            "toddler",
-            binding.itemWhoToddler.tvWhoCount,
-            binding.itemWhoToddler.ibWhoCountIncrease,
-            binding.itemWhoToddler.ibWhoCountDecrease
-        )
-        setCountObserver(
-            "pet",
-            binding.itemWhoPet.tvWhoCount,
-            binding.itemWhoPet.ibWhoCountIncrease,
-            binding.itemWhoPet.ibWhoCountDecrease
-        )
+        setCountObserver("adult", binding.itemWhoAdult)
+        setCountObserver("kids", binding.itemWhoKids)
+        setCountObserver("toddler", binding.itemWhoToddler)
+        setCountObserver("pet", binding.itemWhoPet)
     }
 
     private fun setCountObserver(
         type: String,
-        countTextView: TextView,
-        increaseButton: ImageButton,
-        decreaseButton: ImageButton
+        binding: ItemWhoCountBinding
     ) {
-        whoViewModel.getCount(type).observe(this, Observer {
-            countTextView.text = it.toString()
-        })
+        binding.apply {
+            whoViewModel.getCount(type).observe(this@WhoActivity) {
+                tvWhoCount.text = it.toString()
+            }
 
-        increaseButton.setOnClickListener {
-            whoViewModel.increaseCount(type)
-        }
+            ibWhoCountIncrease.setOnClickListener {
+                whoViewModel.increaseCount(type)
+            }
 
-        decreaseButton.setOnClickListener {
-            whoViewModel.decreaseCount(type)
+            ibWhoCountDecrease.setOnClickListener {
+                whoViewModel.decreaseCount(type)
+            }
         }
     }
 }
