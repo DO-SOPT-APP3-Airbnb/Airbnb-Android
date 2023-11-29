@@ -32,7 +32,6 @@
     <string name="who_title">누구와 함께 여행가시나요?</string>
     <string name="where_title">솝트님,\n이번엔 어디로 여행가시나요?</string>
     <!--appbar-->
-    <string name="app_name">airbnb</string>
     <string name="tv_appbar_title_lodging">숙소</string>
     <string name="tv_appbar_title_experience">체험</string>
     <!--when-->
