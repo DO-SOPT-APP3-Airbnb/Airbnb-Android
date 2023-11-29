@@ -15,10 +15,10 @@ interface ExploreApiService {
     @GET("$API/$DORMITORY/image/{imageId}")
     suspend fun getExploreImage(
         @Path("imageId") imageId: Int,
-    ): BaseResponse<ResponseExploreImageDto>
+    ): BaseResponse<List<ResponseExploreImageDto>>
 
     @GET("$API/$DORMITORY/{dormitoryId}")
     suspend fun getExploreInfo(
         @Path("dormitoryId") dormitoryId: Int,
-    ): BaseResponse<ResponseExploreInfoDto>
+    ): BaseResponse<List<ResponseExploreInfoDto>>
 }

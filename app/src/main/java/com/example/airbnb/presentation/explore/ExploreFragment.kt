@@ -22,7 +22,6 @@ class ExploreFragment : BindingFragment<FragmentExploreBinding>(R.layout.fragmen
         apiImageUrlObserve()
         apiImageInfoObserve()
         selectTab()
-
     }
 
     private fun selectTab() {
@@ -55,6 +54,8 @@ class ExploreFragment : BindingFragment<FragmentExploreBinding>(R.layout.fragmen
             // 뷰페이저 화면 디자인
             vpExplore.offscreenPageLimit = 3
             vpExplore.setPadding(40, 0, 40, 0)
+
+            exploreViewModel.getImageAndInfo(tabId + 1, tabId + 1)
         }
     }
 
