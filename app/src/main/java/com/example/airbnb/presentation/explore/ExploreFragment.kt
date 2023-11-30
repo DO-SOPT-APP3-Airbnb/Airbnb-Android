@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.fragment.app.viewModels
 import com.example.airbnb.R
 import com.example.airbnb.core.base.BindingFragment
+import com.example.airbnb.core.util.fragment.toast
 import com.example.airbnb.core.view.UiState
 import com.example.airbnb.databinding.FragmentExploreBinding
 import com.example.airbnb.presentation.where.WhereActivity
@@ -27,16 +28,14 @@ class ExploreFragment : BindingFragment<FragmentExploreBinding>(R.layout.fragmen
         binding.tapNavMain.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
 
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                // Handle tab select
                 setViewPager(tab?.position ?: 0)
             }
 
             override fun onTabReselected(tab: TabLayout.Tab?) {
-                // Handle tab reselect
+                toast("이미 선택된 탭입니다.")
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {
-                // Handle tab unselect
             }
         })
     }
