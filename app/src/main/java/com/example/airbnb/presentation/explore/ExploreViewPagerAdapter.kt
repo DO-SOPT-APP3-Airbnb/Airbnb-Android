@@ -7,6 +7,7 @@ import coil.load
 import com.example.airbnb.R
 import com.example.airbnb.data.ExploreInfoData
 import com.example.airbnb.databinding.ItemExploreViewpageBinding
+import java.text.NumberFormat
 
 class ExploreViewPagerAdapter(private val viewPagerTotalList: List<ExploreInfoData>) :
     RecyclerView.Adapter<ExploreViewPagerAdapter.PagerViewHolder>() {
@@ -30,13 +31,16 @@ class ExploreViewPagerAdapter(private val viewPagerTotalList: List<ExploreInfoDa
                 // 모서리 둥글
                 ivViewPagerImage.clipToOutline = true
 
+                // 하트 버튼
                 favoriteSelected()
 
-                tvViewPagerTitle.text = imageInfo.description
+                // 텍스트
                 "${imageInfo.distance}km 거리".also { tvViewPagerLocation.text = it }
+                val priceFormatted = NumberFormat.getInstance().format(imageInfo.price)
+                val formattedString = "₩$priceFormatted /박"
+                tvViewPagerPrice.text = formattedString
                 tvViewPagerDate.text = imageInfo.travelDate
-                "₩${imageInfo.price} /박".also { tvViewPagerPrice.text = it }
-
+                tvViewPagerTitle.text = imageInfo.description
                 tvViewPagerScore.text = imageInfo.scope.toString()
             }
         }
