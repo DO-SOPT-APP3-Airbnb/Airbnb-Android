@@ -1,5 +1,6 @@
 package com.example.airbnb.presentation.where
 
+import androidx.activity.viewModels
 import android.graphics.Color
 import androidx.activity.viewModels
 import androidx.viewpager2.widget.CompositePageTransformer
