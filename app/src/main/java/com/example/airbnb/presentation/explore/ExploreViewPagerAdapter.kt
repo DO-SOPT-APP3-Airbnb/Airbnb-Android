@@ -11,8 +11,6 @@ import com.example.airbnb.databinding.ItemExploreViewpageBinding
 class ExploreViewPagerAdapter(private val imageList: List<ExploreInfoData>) :
     RecyclerView.Adapter<ExploreViewPagerAdapter.PagerViewHolder>() {
 
-    // private var imageList: List<ExploreImage> = emptyList()
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PagerViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_explore_viewpage, parent, false)
