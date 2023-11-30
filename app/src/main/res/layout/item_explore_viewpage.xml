@@ -93,19 +93,17 @@
         app:layout_constraintStart_toEndOf="@id/iv_viewPager_score_star"
         tools:text="4.96" />
 
-    <ImageButton
+    <ImageView
         android:id="@+id/ib_viewPager_favorite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="33dp"
         android:layout_marginEnd="23dp"
-        android:background="@null"
-        android:contentDescription="@string/ib_viewPager_favorite"
         android:src="@drawable/ic_explore_favorite_default"
+        android:clickable="true"
+        android:contentDescription="@string/ib_viewPager_favorite"
         app:layout_constraintEnd_toEndOf="@id/iv_viewPager_Image"
-        app:layout_constraintTop_toTopOf="@id/iv_viewPager_Image"
-
-        />
+        app:layout_constraintTop_toTopOf="@id/iv_viewPager_Image" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

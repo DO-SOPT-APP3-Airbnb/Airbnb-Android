@@ -30,11 +30,27 @@ class ExploreViewPagerAdapter(private val viewPagerTotalList: List<ExploreInfoDa
                 // 모서리 둥글
                 ivViewPagerImage.clipToOutline = true
 
+                favoriteSelected()
+
                 tvViewPagerTitle.text = imageInfo.description
                 tvViewPagerLocation.text = imageInfo.distance.toString()
                 tvViewPagerDate.text = imageInfo.travelDate
                 tvViewPagerPrice.text = imageInfo.price.toString()
                 tvViewPagerScore.text = imageInfo.scope.toString()
+            }
+        }
+
+        // 좋아요 버튼 클릭 기능
+        private fun ItemExploreViewpageBinding.favoriteSelected() {
+            ibViewPagerFavorite.isSelected = false
+            var isFavorite = ibViewPagerFavorite.isSelected
+            ibViewPagerFavorite.setOnClickListener {
+                isFavorite = !isFavorite
+                if (isFavorite) {
+                    ibViewPagerFavorite.setImageResource(R.drawable.ic_explore_favorite_selected)
+                } else {
+                    ibViewPagerFavorite.setImageResource(R.drawable.ic_explore_favorite_default)
+                }
             }
         }
     }
