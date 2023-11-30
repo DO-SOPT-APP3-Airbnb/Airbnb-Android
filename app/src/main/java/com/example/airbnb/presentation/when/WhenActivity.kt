@@ -19,6 +19,12 @@ class WhenActivity : BindingActivity<ActivityWhenBinding>(R.layout.activity_when
         getFormattedDate()
     }
 
+    override fun onResume() {
+        super.onResume()
+        getFormattedDate()
+        initCalenderAdapter()
+    }
+
     private fun initWhenClickListener() {
         with(binding) {
             tvWhenNavigationSkip.setOnClickListener { navigateToSignInWho() }
@@ -90,7 +96,8 @@ class WhenActivity : BindingActivity<ActivityWhenBinding>(R.layout.activity_when
     private fun getFormattedDate() {
         val currentDate = LocalDate.now()
         val formatter = DateTimeFormatter.ofPattern("yyyy MM월", Locale.getDefault())
-        binding.tvWhenCalenderYearMonth.text = currentDate.format(formatter
+        binding.tvWhenCalenderYearMonth.text = currentDate.format(
+            formatter
         )
     }
 }
