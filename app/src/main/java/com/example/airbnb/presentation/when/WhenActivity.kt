@@ -7,6 +7,8 @@ import com.example.airbnb.databinding.ActivityWhenBinding
 import com.example.airbnb.presentation.who.WhoActivity
 import java.time.DayOfWeek
 import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.Locale
 
 class WhenActivity : BindingActivity<ActivityWhenBinding>(R.layout.activity_when) {
 
@@ -14,6 +16,7 @@ class WhenActivity : BindingActivity<ActivityWhenBinding>(R.layout.activity_when
         initCalenderAdapter()
         initSelectDateAdapter()
         initWhenClickListener()
+        getFormattedDate()
     }
 
     private fun initWhenClickListener() {
@@ -25,7 +28,7 @@ class WhenActivity : BindingActivity<ActivityWhenBinding>(R.layout.activity_when
 
     private fun initCalenderAdapter() {
         binding.rvWhenCalenderDate.adapter =
-            CalenderAdapter(this).apply {
+            CalenderAdapter(this, findTodayPosition(createCustomCalendar())).apply {
                 submitList(createCustomCalendar())
             }
     }
@@ -40,6 +43,7 @@ class WhenActivity : BindingActivity<ActivityWhenBinding>(R.layout.activity_when
         val currentDate = LocalDate.now()
         val firstDayOfMonth = currentDate.withDayOfMonth(1)
         val dayOfWeekValue = firstDayOfMonth.dayOfWeek.value
+        val startIndex = if (dayOfWeekValue != DayOfWeek.SUNDAY.value) dayOfWeekValue else 0
 
         val calendarList = mutableListOf<String>()
 
@@ -65,6 +69,29 @@ class WhenActivity : BindingActivity<ActivityWhenBinding>(R.layout.activity_when
             startActivity(this)
             finish()
         }
+    }
+
+    private fun findTodayPosition(calendarList: List<String>): Int {
+        val currentDate = LocalDate.now()
+        val firstDayOfMonth = currentDate.withDayOfMonth(1)
+        val dayOfWeekValue = firstDayOfMonth.dayOfWeek.value
+        val startIndex = if (dayOfWeekValue != DayOfWeek.SUNDAY.value) dayOfWeekValue else 0
+
+        // 오늘 날짜가 리스트에 있는지 확인하고 있다면 그 위치 반환
+        for ((index, value) in calendarList.withIndex()) {
+            if (value == currentDate.dayOfMonth.toString()) {
+                return index
+            }
+        }
+
+        return -1
+    }
+
+    private fun getFormattedDate() {
+        val currentDate = LocalDate.now()
+        val formatter = DateTimeFormatter.ofPattern("yyyy MM월", Locale.getDefault())
+        binding.tvWhenCalenderYearMonth.text = currentDate.format(formatter
+        )
     }
 }
 
