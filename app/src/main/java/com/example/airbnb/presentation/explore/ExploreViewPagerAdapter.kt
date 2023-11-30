@@ -42,7 +42,6 @@ class ExploreViewPagerAdapter(private val viewPagerTotalList: List<ExploreInfoDa
 
         // 좋아요 버튼 클릭 기능
         private fun ItemExploreViewpageBinding.favoriteSelected() {
-            ibViewPagerFavorite.isSelected = false
             var isFavorite = ibViewPagerFavorite.isSelected
             ibViewPagerFavorite.setOnClickListener {
                 isFavorite = !isFavorite
