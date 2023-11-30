@@ -8,7 +8,7 @@ import com.example.airbnb.R
 import com.example.airbnb.data.ExploreInfoData
 import com.example.airbnb.databinding.ItemExploreViewpageBinding
 
-class ExploreViewPagerAdapter(private val imageList: List<ExploreInfoData>) :
+class ExploreViewPagerAdapter(private val viewPagerTotalList: List<ExploreInfoData>) :
     RecyclerView.Adapter<ExploreViewPagerAdapter.PagerViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PagerViewHolder {
@@ -34,15 +34,15 @@ class ExploreViewPagerAdapter(private val imageList: List<ExploreInfoData>) :
                 tvViewPagerLocation.text = imageInfo.distance.toString()
                 tvViewPagerDate.text = imageInfo.travelDate
                 tvViewPagerPrice.text = imageInfo.price.toString()
-                tvViewPagerScore.text = imageInfo.score.toString()
+                tvViewPagerScore.text = imageInfo.scope.toString()
             }
         }
     }
 
-    override fun getItemCount(): Int = imageList.size
+    override fun getItemCount(): Int = viewPagerTotalList.size
 
     override fun onBindViewHolder(holder: PagerViewHolder, position: Int) {
-        val exploreImage = imageList[position]
+        val exploreImage = viewPagerTotalList[position]
         holder.onBindView(exploreImage)
     }
 }

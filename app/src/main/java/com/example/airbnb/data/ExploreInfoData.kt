@@ -6,5 +6,5 @@ data class ExploreInfoData(
     val distance: Int,
     val travelDate: String,
     val price: Int,
-    val score: Double,
+    val scope: Double,
 )

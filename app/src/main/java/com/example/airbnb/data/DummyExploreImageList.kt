@@ -10,7 +10,7 @@ object DummyExploreImageList {
                 distance = 998,
                 travelDate = "11월11일",
                 price = 609521,
-                score = 4.96,
+                scope = 4.96,
             ),
             ExploreInfoData(
                 Image = "이미지2",
@@ -18,7 +18,7 @@ object DummyExploreImageList {
                 distance = 998,
                 travelDate = "11월11일",
                 price = 609521,
-                score = 4.96,
+                scope = 4.96,
             ),
             ExploreInfoData(
                 Image = "이미지3",
@@ -26,7 +26,7 @@ object DummyExploreImageList {
                 distance = 998,
                 travelDate = "11월11일",
                 price = 609521,
-                score = 4.96,
+                scope = 4.96,
             ),
             ExploreInfoData(
                 Image = "이미지4",
@@ -34,7 +34,7 @@ object DummyExploreImageList {
                 distance = 998,
                 travelDate = "11월11일",
                 price = 609521,
-                score = 4.96,
+                scope = 4.96,
             ),
         ),
 
@@ -45,7 +45,7 @@ object DummyExploreImageList {
                 distance = 998,
                 travelDate = "11월11일",
                 price = 609521,
-                score = 4.96,
+                scope = 4.96,
             ),
             ExploreInfoData(
                 Image = "이미지2",
@@ -53,7 +53,7 @@ object DummyExploreImageList {
                 distance = 998,
                 travelDate = "11월11일",
                 price = 609521,
-                score = 4.96,
+                scope = 4.96,
             ),
             ExploreInfoData(
                 Image = "이미지3",
@@ -61,7 +61,7 @@ object DummyExploreImageList {
                 distance = 998,
                 travelDate = "11월11일",
                 price = 609521,
-                score = 4.96,
+                scope = 4.96,
             ),
             ExploreInfoData(
                 Image = "이미지4",
@@ -69,7 +69,7 @@ object DummyExploreImageList {
                 distance = 998,
                 travelDate = "11월11일",
                 price = 609521,
-                score = 4.96,
+                scope = 4.96,
             ),
         ),
         listOf(
@@ -79,7 +79,7 @@ object DummyExploreImageList {
                 distance = 998,
                 travelDate = "11월일",
                 price = 609521,
-                score = 4.96,
+                scope = 4.96,
             ),
             ExploreInfoData(
                 Image = "이미지2",
@@ -87,7 +87,7 @@ object DummyExploreImageList {
                 distance = 998,
                 travelDate = "11월일",
                 price = 609521,
-                score = 4.96,
+                scope = 4.96,
             ),
             ExploreInfoData(
                 Image = "이미지3",
@@ -95,7 +95,7 @@ object DummyExploreImageList {
                 distance = 998,
                 travelDate = "11월일",
                 price = 609521,
-                score = 4.96,
+                scope = 4.96,
             ),
             ExploreInfoData(
                 Image = "이미지4",
@@ -103,7 +103,7 @@ object DummyExploreImageList {
                 distance = 998,
                 travelDate = "11월일",
                 price = 609521,
-                score = 4.96,
+                scope = 4.96,
             ),
         ),
         listOf(
@@ -113,7 +113,7 @@ object DummyExploreImageList {
                 distance = 998,
                 travelDate = "11월11일",
                 price = 609521,
-                score = 4.9,
+                scope = 4.9,
             ),
             ExploreInfoData(
                 Image = "이미지2",
@@ -121,7 +121,7 @@ object DummyExploreImageList {
                 distance = 998,
                 travelDate = "11월11일",
                 price = 609521,
-                score = 4.9,
+                scope = 4.9,
             ),
             ExploreInfoData(
                 Image = "이미지3",
@@ -129,7 +129,7 @@ object DummyExploreImageList {
                 distance = 998,
                 travelDate = "11월11일",
                 price = 609521,
-                score = 4.9,
+                scope = 4.9,
             ),
             ExploreInfoData(
                 Image = "이미지4",
@@ -137,7 +137,7 @@ object DummyExploreImageList {
                 distance = 998,
                 travelDate = "11월11일",
                 price = 609521,
-                score = 4.9,
+                scope = 4.9,
             ),
         ),
     )
