@@ -1,26 +1,19 @@
 package com.example.airbnb.data.api
 
-import com.example.airbnb.data.dto.response.ResponseExampleDto
-import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.POST
+import com.example.airbnb.data.dto.BaseResponse
+import com.example.airbnb.data.dto.response.ResponseNickNameDto
+import retrofit2.http.GET
+import retrofit2.http.Path
 
 interface ExampleApiService {
     companion object {
         const val API = "api"
-        const val V1 = "v1"
-        const val MEMBERS = "members"
+        const val USER = "user"
+        const val USER_ID = "userId"
     }
 
-    //기본
-    @POST("$API/$V1/$MEMBERS")
-    fun postExample1(
-        @Body requestExample: Unit
-    ): Call<ResponseExampleDto>
-
-    //코루틴 쓰면
-    @POST("$API/$V1/$MEMBERS")
-    suspend fun postExample2(
-        @Body requestExample: Unit
-    ): ResponseExampleDto
+    @GET("/$API/$USER/{$USER_ID}")
+    suspend fun getNickName(
+        @Path(USER_ID) userId: Int
+    ): BaseResponse<ResponseNickNameDto>
 }
