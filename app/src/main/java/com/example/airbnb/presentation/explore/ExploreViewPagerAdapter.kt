@@ -33,9 +33,10 @@ class ExploreViewPagerAdapter(private val viewPagerTotalList: List<ExploreInfoDa
                 favoriteSelected()
 
                 tvViewPagerTitle.text = imageInfo.description
-                tvViewPagerLocation.text = imageInfo.distance.toString()
+                "${imageInfo.distance}km 거리".also { tvViewPagerLocation.text = it }
                 tvViewPagerDate.text = imageInfo.travelDate
-                tvViewPagerPrice.text = imageInfo.price.toString()
+                "₩${imageInfo.price} /박".also { tvViewPagerPrice.text = it }
+
                 tvViewPagerScore.text = imageInfo.scope.toString()
             }
         }
