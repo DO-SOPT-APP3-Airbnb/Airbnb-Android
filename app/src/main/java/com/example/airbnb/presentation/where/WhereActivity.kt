@@ -1,5 +1,6 @@
 package com.example.airbnb.presentation.where
 
+import android.graphics.Color
 import androidx.activity.viewModels
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
@@ -20,6 +21,8 @@ class WhereActivity : BindingActivity<ActivityWhereBinding>(R.layout.activity_wh
     private val whereViewModel by viewModels<WhereViewModel>()
 
     override fun initView() {
+        binding.appbarWhen.tvAppbarTitleLodging.setTextColor(Color.WHITE)
+        binding.appbarWhen.viewAppbarTitleBar.setBackgroundColor(Color.WHITE)
         whereObserve()
     }
 
