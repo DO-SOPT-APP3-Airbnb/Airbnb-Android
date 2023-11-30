@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -8,16 +9,137 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/img_when_background">
+
+        <include
+            android:id="@+id/appbar_when"
+            layout="@layout/view_appbar" />
+
+        <ImageView
+            android:id="@+id/iv_when_progress_bar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="11dp"
+            android:layout_marginTop="18dp"
+            android:contentDescription="@string/when_content_description_progress_bar"
+            android:src="@drawable/ic_when_progressbar"
+            app:layout_constraintDimensionRatio="13:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/appbar_when" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_when_title"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="캘린더 / 소현"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="4dp"
+            android:text="@string/tv_when_title"
+            android:textAppearance="@style/TextAppearance.Airbnb.title_bold_25"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_when_progress_bar" />
+
+
+        <View
+            android:id="@+id/view_when_calender_background"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="19dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="38dp"
+            android:background="@drawable/shape_white_40_fill_20_rec"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/tv_when_title" />
 
+        <include
+            android:id="@+id/layout_when_calender_selection"
+            layout="@layout/view_calender_selection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            app:layout_constraintEnd_toEndOf="@id/view_when_calender_background"
+            app:layout_constraintStart_toStartOf="@id/view_when_calender_background"
+            app:layout_constraintTop_toTopOf="@id/view_when_calender_background" />
+
+        <include
+            android:id="@+id/layout_when_calender_week"
+            layout="@layout/view_calender_week"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="22dp"
+            app:layout_constraintEnd_toEndOf="@id/view_when_calender_background"
+            app:layout_constraintStart_toStartOf="@id/view_when_calender_background"
+            app:layout_constraintTop_toBottomOf="@id/layout_when_calender_selection" />
+
+        <TextView
+            android:id="@+id/tv_when_calender_year_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@string/tv_when_calender_year_month"
+            android:textAppearance="@style/TextAppearance.Airbnb.body_bold_14"
+            app:layout_constraintStart_toStartOf="@id/layout_when_calender_week"
+            app:layout_constraintTop_toBottomOf="@id/layout_when_calender_week" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_when_calender_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginTop="6dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintEnd_toEndOf="@id/view_when_calender_background"
+            app:layout_constraintStart_toStartOf="@id/view_when_calender_background"
+            app:layout_constraintTop_toBottomOf="@id/tv_when_calender_year_month"
+            app:spanCount="7"
+            tools:itemCount="42"
+            tools:listitem="@layout/item_calender_date" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_when_select_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="30dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@id/btn_when_navigation_next"
+            app:layout_constraintEnd_toEndOf="@id/view_when_calender_background"
+            app:layout_constraintStart_toStartOf="@id/view_when_calender_background"
+            tools:listitem="@layout/item_when_select_date" />
+
+        <TextView
+            android:id="@+id/tv_when_navigation_skip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="28dp"
+            android:text="@string/tv_when_navigation_skip"
+            android:textAppearance="@style/TextAppearance.Airbnb.cap_medium_16_underline"
+            app:layout_constraintBottom_toBottomOf="@id/view_when_calender_background"
+            app:layout_constraintStart_toStartOf="@id/view_when_calender_background" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_when_navigation_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="18dp"
+            android:background="@drawable/shape_black1_fill_10_rec"
+            android:minHeight="0dp"
+            android:paddingHorizontal="44dp"
+            android:paddingVertical="10dp"
+            android:text="@string/btn_when_navigation_next"
+            android:textAppearance="@style/TextAppearance.Airbnb.sub_medium_16"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@id/view_when_calender_background"
+            app:layout_constraintEnd_toEndOf="@id/view_when_calender_background"
+            tools:ignore="TouchTargetSizeCheck" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

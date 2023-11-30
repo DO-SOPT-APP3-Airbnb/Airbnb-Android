@@ -8,15 +8,101 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/img_who_background">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="who / 언지"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <ImageView
+            android:id="@+id/iv_who_progress_bar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="11dp"
+            android:layout_marginTop="18dp"
+            android:src="@drawable/ic_who_progress_bar"
+            app:layout_constraintDimensionRatio="13:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_who_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="9dp"
+            android:text="@string/who_title"
+            android:textAppearance="@style/TextAppearance.Airbnb.title_bold_25"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_who_progress_bar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="54dp"
+            android:paddingBottom="43dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="38dp"
+            android:background="@drawable/shape_white_40_fill_20_rect"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <include
+                android:id="@+id/item_who_adult"
+                layout="@layout/item_who_count"
+                app:description="@{@string/who_adult_description}"
+                app:title="@{@string/who_adult_title}" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="13dp"
+                app:dividerColor="@color/gray_line"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <include
+                android:id="@+id/item_who_kids"
+                layout="@layout/item_who_count"
+                app:description="@{@string/who_kids_description}"
+                app:title="@{@string/who_kids_title}" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginTop="9.5dp"
+                android:layout_marginBottom="15dp"
+                app:dividerColor="@color/gray_line"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <include
+                android:id="@+id/item_who_toddler"
+                layout="@layout/item_who_count"
+                app:description="@{@string/who_toddler_description}"
+                app:title="@{@string/who_toddler_title}" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="17dp"
+                app:dividerColor="@color/gray_line"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <include
+                android:id="@+id/item_who_pet"
+                layout="@layout/item_who_count"
+                app:description="@{@string/who_pet_description}"
+                app:title="@{@string/who_pet_title}" />
+
+        </LinearLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
