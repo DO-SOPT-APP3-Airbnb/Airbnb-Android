@@ -13,9 +13,11 @@ class CalenderViewHolder(
     private val binding: ItemCalenderDateBinding
 ) : RecyclerView.ViewHolder(binding.root) {
     fun onBind(position: Int, data: String) {
+        //휴일이면
         if (position % 7 == 0) {
             binding.tvCalenderDate.setTextColor(context.colorOf(R.color.main1))
         }
+        //지난 날짜면
         if (position < todayPosition && data.isNotEmpty()) {
             binding.tvCalenderDate.setTextColor(context.colorOf(R.color.gray_text))
             binding.tvCalenderDate.paintFlags = binding.tvCalenderDate.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
