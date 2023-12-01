@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -33,11 +34,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="9dp"
-            android:text="@string/where_title"
             android:textAppearance="@style/TextAppearance.Airbnb.title_bold_25"
             android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_where_progress_bar" />
+            app:layout_constraintTop_toBottomOf="@id/iv_where_progress_bar"
+            tools:text="@string/where_title" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/vp_where_location"

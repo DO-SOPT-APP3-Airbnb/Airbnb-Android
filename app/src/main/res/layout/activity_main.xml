@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/back_gray"
+        android:paddingTop="45dp"
         tools:context=".presentation.MainActivity">
 
 
