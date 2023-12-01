@@ -50,7 +50,6 @@ class WherePagerAdapter(private val items: List<WhereItem>) :
                 // 배경이 변경된 경우 when 페이지로 이동
                 val intent = Intent(holder.itemView.context, WhenActivity::class.java)
                 holder.itemView.context.startActivity(intent)
-                holder.binding.tvWhereLocationName.setBackgroundResource(R.drawable.shape_gray_icon_fill_top10_rect)
                 item.isClicked = false
             }
         }
