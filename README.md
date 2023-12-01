@@ -35,16 +35,16 @@
 | ![image](https://github.com/DO-SOPT-APP3-Airbnb/Airbnb-Android/assets/98076050/10f7fa65-c1a1-43c6-8f29-beae36a2d2ac) | ![image](https://github.com/DO-SOPT-APP3-Airbnb/Airbnb-Android/assets/98076050/b702cb9c-f046-4ce4-97f7-0a94229a084a) | ![image](https://github.com/DO-SOPT-APP3-Airbnb/Airbnb-Android/assets/98076050/18878ea1-90b0-4d1f-aa3f-9d9a0d46e230) | ![image](https://github.com/DO-SOPT-APP3-Airbnb/Airbnb-Android/assets/98076050/eae426c8-ce65-449a-a88c-5b31ab7d308c)| 
 
 ### 𝙑𝙞𝙙𝙚𝙤
-### [explore]
+#### [𝙚𝙭𝙥𝙡𝙤𝙧𝙚]
 https://github.com/DO-SOPT-APP3-Airbnb/Airbnb-Android/assets/98076050/53941576-8937-4549-9ccb-536865b3fd47
 
-### [where]
+#### [𝙬𝙝𝙚𝙧𝙚]
 https://github.com/DO-SOPT-APP3-Airbnb/Airbnb-Android/assets/98076050/b348e655-3fdb-4108-90cb-0f3c3406a269
 
-### [when]
+#### [𝙬𝙝𝙚𝙣]
 https://github.com/DO-SOPT-APP3-Airbnb/Airbnb-Android/assets/98076050/b5eb0a84-7cf2-446a-8f39-08d95e90f317
 
-### [who]
+#### [𝙬𝙝𝙤]
 https://github.com/DO-SOPT-APP3-Airbnb/Airbnb-Android/assets/98076050/38f1d8cf-fe37-42f2-abdc-8f4129c8e9ea
 
 
