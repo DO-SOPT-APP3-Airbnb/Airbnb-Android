@@ -10,7 +10,7 @@ data class BaseResponse<T>(
     @SerialName("status")
     val status: Int? = null,
     @SerialName("success")
-    val success: Boolean,
+    val success: Boolean? = null,
     @SerialName("message")
     val message: String,
     @SerialName("data")

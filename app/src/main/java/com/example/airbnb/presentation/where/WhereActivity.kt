@@ -75,5 +75,13 @@ class WhereActivity : BindingActivity<ActivityWhereBinding>(R.layout.activity_wh
                 is UiState.Loading -> Timber.d("로딩중")
             }
         }
+
+        whereViewModel.getNickName.observe(this){
+            when(it){
+                is UiState.Success -> binding.tvWhereTitle.text = it.data.toString() + "님,\n이번엔 어디로 여행가시나요?"
+                is UiState.Failure -> Timber.d("실패")
+                is UiState.Loading -> Timber.d("로딩중")
+            }
+        }
     }
 }
