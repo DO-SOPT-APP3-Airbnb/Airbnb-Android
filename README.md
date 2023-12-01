@@ -28,4 +28,7 @@
 | ![단체사진](https://github.com/DO-SOPT-APP3-Airbnb/Airbnb-Android/assets/98076050/ff8daec6-1408-41ed-8c2c-5b3cb393a525) | ![소현](https://github.com/Indipage/ANDROID/assets/46596035/c121edfe-3fd3-4854-b77c-76646c326cfc) | ![언지](https://github.com/DO-SOPT-APP3-Airbnb/Airbnb-Android/assets/98076050/f81a41e5-697b-403d-8c25-5beddcc1bfdc) | ![유리](https://github.com/DO-SOPT-APP3-Airbnb/Airbnb-Android/assets/98076050/a5912509-64fb-4032-a2d2-66db3f498c5d)
 | Airbnb |     when         |         where/who          |        explore        |
 
-
+## 📌 Convention
++ [Coding Convention](https://verbose-tablecloth-151.notion.site/ae82e193db66418bb19c10867eb67a50?v=c6aa612daa0144e696897ded71318ed9&pvs=4)
++ [Branch Convention](https://verbose-tablecloth-151.notion.site/Branch-Convention-e610a396119a464bb7934daa70d32e22?pvs=4)
++ [Github Convention](https://verbose-tablecloth-151.notion.site/Github-Convention-e333f3d8bce84aa6919adf1ce08da978?pvs=4)
