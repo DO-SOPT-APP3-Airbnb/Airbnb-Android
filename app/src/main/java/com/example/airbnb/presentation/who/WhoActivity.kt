@@ -1,11 +1,7 @@
 package com.example.airbnb.presentation.who
 
 import android.graphics.Paint
-import android.widget.ImageButton
-import android.widget.TextView
 import androidx.activity.viewModels
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.example.airbnb.R
 import com.example.airbnb.core.base.BindingActivity
 import com.example.airbnb.databinding.ActivityWhoBinding

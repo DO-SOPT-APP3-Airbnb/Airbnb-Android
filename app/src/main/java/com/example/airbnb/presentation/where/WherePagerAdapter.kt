@@ -11,6 +11,8 @@ import com.example.airbnb.presentation.`when`.WhenActivity
 class WherePagerAdapter(private val items: List<WhereItem>) :
     RecyclerView.Adapter<WhereViewHolder>() {
 
+    private var selectedItemPosition: Int = RecyclerView.NO_POSITION
+
     // 새로운 뷰 홀더 객체를 생성하고 반환
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WhereViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -23,14 +25,23 @@ class WherePagerAdapter(private val items: List<WhereItem>) :
         val item = items[position]
         holder.onBind(item)
 
-        updateItemBackground(holder, item)
+        updateItemBackground(holder, item, position)
     }
 
     private fun updateItemBackground(
         holder: WhereViewHolder,
-        item: WhereItem
+        item: WhereItem,
+        position: Int
     ) {
         holder.itemView.setOnClickListener {
+            if (selectedItemPosition != position) {
+                selectedItemPosition.takeIf { it != RecyclerView.NO_POSITION }?.let {
+                    items[it].isClicked = false
+                    notifyItemChanged(it)
+                }
+                selectedItemPosition = position
+            }
+
             if (!item.isClicked) {
                 // 배경이 변경되지 않은 경우 배경 변경
                 holder.binding.tvWhereLocationName.setBackgroundResource(R.drawable.shape_main1_fill_top10_rect)
@@ -39,14 +50,12 @@ class WherePagerAdapter(private val items: List<WhereItem>) :
                 // 배경이 변경된 경우 when 페이지로 이동
                 val intent = Intent(holder.itemView.context, WhenActivity::class.java)
                 holder.itemView.context.startActivity(intent)
+                holder.binding.tvWhereLocationName.setBackgroundResource(R.drawable.shape_gray_icon_fill_top10_rect)
+                item.isClicked = false
             }
         }
     }
 
     // 어댑터가 관리하는 아이템의 총 개수 반환
     override fun getItemCount(): Int = items.size
-
-    // 어댑터가 관리하는 아이템 리스트 반환
-    fun getItems(): List<WhereItem> = items
-
 }

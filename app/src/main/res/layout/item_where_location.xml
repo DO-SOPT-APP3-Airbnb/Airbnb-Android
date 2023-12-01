@@ -30,25 +30,16 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="전 세계 어디든 좋아요." />
 
-        <View
-            android:id="@+id/view_where_background"
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/iv_where_location"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/shape_white_40_fill_bot10_rect"
+            android:padding="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_where_location_name" />
-
-        <ImageView
-            android:id="@+id/iv_where_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/img_where_map_world_test"
-            app:layout_constraintBottom_toBottomOf="@id/view_where_background"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/view_where_background" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

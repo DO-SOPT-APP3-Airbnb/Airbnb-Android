@@ -11,6 +11,10 @@
         android:layout_height="match_parent"
         android:background="@drawable/img_where_background">
 
+        <include
+            android:id="@+id/appbar_when"
+            layout="@layout/view_appbar" />
+
         <ImageView
             android:id="@+id/iv_where_progress_bar"
             android:layout_width="0dp"
@@ -21,7 +25,7 @@
             app:layout_constraintDimensionRatio="13:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/appbar_when" />
 
         <TextView
             android:id="@+id/tv_where_title"

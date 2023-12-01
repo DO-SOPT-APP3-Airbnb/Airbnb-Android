@@ -1,26 +1,30 @@
 package com.example.airbnb.presentation.where
 
+import androidx.activity.viewModels
+import android.graphics.Color
+import androidx.activity.viewModels
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.example.airbnb.R
 import com.example.airbnb.core.base.BindingActivity
+import com.example.airbnb.core.view.UiState
 import com.example.airbnb.databinding.ActivityWhereBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import timber.log.Timber
 
 class WhereActivity : BindingActivity<ActivityWhereBinding>(R.layout.activity_where) {
     private lateinit var viewPager: ViewPager2
     private lateinit var adapter: WherePagerAdapter
     private lateinit var tabLayout: TabLayout
 
-    override fun initView() {
-        // ViewPager 및 어댑터 초기화
-        viewPager = binding.vpWhereLocation
-        adapter = WherePagerAdapter(getLocations())  // 서버 API 데이터로 교체해야 함!
+    private val whereViewModel by viewModels<WhereViewModel>()
 
-        initViewPager()
-        initTabLayout()
+    override fun initView() {
+        binding.appbarWhen.tvAppbarTitleLodging.setTextColor(Color.WHITE)
+        binding.appbarWhen.viewAppbarTitleBar.setBackgroundColor(Color.WHITE)
+        whereObserve()
     }
 
     private fun initTabLayout() {
@@ -53,23 +57,23 @@ class WhereActivity : BindingActivity<ActivityWhereBinding>(R.layout.activity_wh
         viewPager.setPageTransformer(compositePageTransformer)
     }
 
-    override fun onResume() {
-        super.onResume()
+    private fun whereObserve() {
+        whereViewModel.whereLiveData.observe(this) {
+            when (it) {
+                is UiState.Success -> {
+                    Timber.d("성공")
 
-        // WhenActivity에서 돌아왔을 때, 모든 WhenItem의 isClicked 값을 초기화
-        initClickStates()
-    }
+                    // ViewPager 및 어댑터 초기화
+                    viewPager = binding.vpWhereLocation
+                    adapter = WherePagerAdapter(it.data)
 
-    private fun initClickStates() {
-        adapter.getItems().forEach { it.isClicked = false }
-        adapter.notifyDataSetChanged()
-    }
+                    initViewPager()
+                    initTabLayout()
+                }
 
-    private fun getLocations(): List<WhereItem> {
-        return listOf(
-            WhereItem("전 세계 어디든 좋아요."),
-            WhereItem("유럽"),
-            WhereItem("일본")
-        )
+                is UiState.Failure -> Timber.d("실패")
+                is UiState.Loading -> Timber.d("로딩중")
+            }
+        }
     }
 }
