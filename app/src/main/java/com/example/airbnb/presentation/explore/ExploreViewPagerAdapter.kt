@@ -5,13 +5,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.airbnb.R
-import com.example.airbnb.data.ExploreImage
+import com.example.airbnb.data.ExploreInfoData
 import com.example.airbnb.databinding.ItemExploreViewpageBinding
+import java.text.NumberFormat
 
-class ExploreViewPagerAdapter(private val imageList: List<ExploreImage>) :
+class ExploreViewPagerAdapter(private val viewPagerTotalList: List<ExploreInfoData>) :
     RecyclerView.Adapter<ExploreViewPagerAdapter.PagerViewHolder>() {
-
-    // private var imageList: List<ExploreImage> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PagerViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -22,7 +21,7 @@ class ExploreViewPagerAdapter(private val imageList: List<ExploreImage>) :
     class PagerViewHolder(private val binding: ItemExploreViewpageBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun onBindView(imageInfo: ExploreImage) {
+        fun onBindView(imageInfo: ExploreInfoData) {
             binding.run {
                 ivViewPagerImage.load(imageInfo.Image) {
                     placeholder(R.drawable.shape_gray_fill_14_rect_image_loading)
@@ -32,19 +31,38 @@ class ExploreViewPagerAdapter(private val imageList: List<ExploreImage>) :
                 // 모서리 둥글
                 ivViewPagerImage.clipToOutline = true
 
-                tvViewPagerTitle.text = imageInfo.description
-                tvViewPagerLocation.text = imageInfo.distance.toString()
+                // 하트 버튼
+                favoriteSelected()
+
+                // 텍스트
+                "${imageInfo.distance}km 거리".also { tvViewPagerLocation.text = it }
+                val priceFormatted = NumberFormat.getInstance().format(imageInfo.price)
+                val formattedString = "₩$priceFormatted /박"
+                tvViewPagerPrice.text = formattedString
                 tvViewPagerDate.text = imageInfo.travelDate
-                tvViewPagerPrice.text = imageInfo.price.toString()
-                tvViewPagerScore.text = imageInfo.score.toString()
+                tvViewPagerTitle.text = imageInfo.description
+                tvViewPagerScore.text = imageInfo.scope.toString()
+            }
+        }
+
+        // 좋아요 버튼 클릭 기능
+        private fun ItemExploreViewpageBinding.favoriteSelected() {
+            var isFavorite = ibViewPagerFavorite.isSelected
+            ibViewPagerFavorite.setOnClickListener {
+                isFavorite = !isFavorite
+                if (isFavorite) {
+                    ibViewPagerFavorite.setImageResource(R.drawable.ic_explore_favorite_selected)
+                } else {
+                    ibViewPagerFavorite.setImageResource(R.drawable.ic_explore_favorite_default)
+                }
             }
         }
     }
 
-    override fun getItemCount(): Int = imageList.size
+    override fun getItemCount(): Int = viewPagerTotalList.size
 
     override fun onBindViewHolder(holder: PagerViewHolder, position: Int) {
-        val exploreImage = imageList[position]
+        val exploreImage = viewPagerTotalList[position]
         holder.onBindView(exploreImage)
     }
 }

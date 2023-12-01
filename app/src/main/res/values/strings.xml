@@ -16,10 +16,7 @@
     <string name="room_contentDescription">룸 이미지</string>
     <string name="iv_viewPager_score_star">별점 아이콘</string>
     <string name="ib_viewPager_favorite">좋아요</string>
-    <string name="dummy_image1">R.string.ex_good1</string>
-    <string name="dummy_image2">R.string.ex_good2</string>
-    <string name="dummy_image3">R.string.ex_good3</string>
-    <string name="dummy_image4">R.string.ex_good4</string>
+
     <!--who-->
     <string name="who_adult_title">성인</string>
     <string name="who_adult_description">13세 이상</string>
