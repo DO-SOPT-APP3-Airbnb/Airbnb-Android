@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/back_gray"
-        android:paddingTop="45dp"
         tools:context=".presentation.MainActivity">
 
 
@@ -19,6 +18,7 @@
             android:id="@+id/fcv_main"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:paddingTop="45dp"
             app:layout_constraintBottom_toTopOf="@+id/bot_nav_main"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -28,12 +28,13 @@
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bot_nav_main"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="90dp"
             android:background="@color/white"
             android:elevation="100dp"
             app:itemActiveIndicatorStyle="@null"
             app:itemBackground="@color/white"
             app:itemIconTint="@color/bnv_item_selector"
+            app:itemPaddingBottom="14dp"
             app:itemTextColor="@color/bnv_item_selector"
             app:labelVisibilityMode="labeled"
             app:layout_constraintBottom_toBottomOf="parent"
