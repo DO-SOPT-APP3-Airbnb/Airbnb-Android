@@ -6,26 +6,14 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
     android:background="@drawable/shape_gray_fill_20_rec">
-
+    
     <Switch
-        android:id="@+id/switch_second"
-        android:layout_width="200dp"
+        android:id="@+id/switch_calender_selection"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="end"
+        android:layout_gravity="center"
         android:showText="true"
-        android:textOff=""
-        android:textOn=""
-        android:textSize="12sp"
-        android:thumb="@drawable/sel_when_drawable_calender_selection_thumb"
-        android:track="@drawable/sel_when_drawable_calender_selection_switch"
-        tools:ignore="UseSwitchCompatOrMaterialXml" />
-
-    <Switch
-        android:id="@+id/switch_first"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:showText="true"
+        android:switchMinWidth="300dp"
         android:textOff=""
         android:textOn=""
         android:textSize="12sp"
